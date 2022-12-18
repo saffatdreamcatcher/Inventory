@@ -114,23 +114,8 @@ namespace Inventory.UI
 
         private void resetbtn_Click(object sender, EventArgs e)
         {
-            try 
-            {
-                ClearField();
-                int A = 12;
-                int B = 0;
-                int c = A / B;
-            }
-            catch (DivideByZeroException ex)
-            {
-             
-            }
-            catch (Exception ex)
-            {
-             
-            }
-            
-           
+
+            ClearField();
         }
     }
 }
