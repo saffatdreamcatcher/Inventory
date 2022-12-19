@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogic\CustomerBLL.cs" />
     <Compile Include="BusinessLogic\ProductBLL.cs" />
+    <Compile Include="BusinessLogic\SupplierBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

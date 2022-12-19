@@ -81,5 +81,11 @@ namespace WinFormsApp1
             //var customerDLL = new CustomerDLL();
             //Customer D = customerDLL.GetById(1);
         }
+
+        private void btnSupplier_Click(object sender, EventArgs e)
+        {
+            frmSupplier frmSupplier = new frmSupplier();
+            frmSupplier.ShowDialog();
+        }
     }
 }

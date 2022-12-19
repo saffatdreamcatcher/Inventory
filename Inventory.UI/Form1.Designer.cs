@@ -33,6 +33,7 @@ namespace WinFormsApp1
             this.btnCustomer = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
+            this.btnSupplier = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,11 +82,22 @@ namespace WinFormsApp1
             this.btnOrder.UseVisualStyleBackColor = true;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
+            // btnSupplier
+            // 
+            this.btnSupplier.Location = new System.Drawing.Point(429, 16);
+            this.btnSupplier.Name = "btnSupplier";
+            this.btnSupplier.Size = new System.Drawing.Size(111, 36);
+            this.btnSupplier.TabIndex = 15;
+            this.btnSupplier.Text = "Add Supplier";
+            this.btnSupplier.UseVisualStyleBackColor = true;
+            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 282);
+            this.Controls.Add(this.btnSupplier);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.btnProduct);
             this.Controls.Add(this.btnCustomer);
@@ -105,6 +117,7 @@ namespace WinFormsApp1
     private System.Windows.Forms.Button btnCustomer;
     private System.Windows.Forms.Button btnProduct;
     private System.Windows.Forms.Button btnOrder;
+        private System.Windows.Forms.Button btnSupplier;
     }
 }
 
