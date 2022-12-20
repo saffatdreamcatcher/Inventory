@@ -29,6 +29,11 @@ namespace Inventory.UI
         }
 
 
+        private void gvSupplier_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ManageEdit(e);
+        }
+
 
         private void ManageEdit(DataGridViewCellEventArgs e)
         {
@@ -37,11 +42,15 @@ namespace Inventory.UI
                 supplierId = Convert.ToInt32(gvSupplier.Rows[e.RowIndex].Cells[0].Value);
                 txtName2.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[2].Value);
                 txtContact.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[3].Value);
-                txtAddress.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[4].Value);
-                txtCity.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[5].Value);
-                txtPostalCode.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[6].Value);
-                txtCountry.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[7].Value);
-
+                txtContactTitle.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[4].Value);
+                txtAddress.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[5].Value);
+                txtCity.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[6].Value);
+                txtPostalCode.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[7].Value);
+                txtCountry.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[9].Value);
+                txtRegion.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[10].Value);
+                txtPhone.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[11].Value);
+                txtFax.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[12].Value);
+                txtHomePage.Text = Convert.ToString(gvSupplier.Rows[e.RowIndex].Cells[13].Value);
             }
             else if (e.ColumnIndex == 15)
             {
@@ -52,22 +61,46 @@ namespace Inventory.UI
 
         private void SaveCustomer()
         {
-            Supplier supplier = new Supplier();
-            supplier.Id = supplierId;
-            supplier.Name = txtName2.Text;
-            supplier.Address = txtAddress.Text;
-            supplier.Contact = txtContact.Text;
-            supplier.ContactTitle = txtContactTitle.Text;
-            supplier.City = txtCity.Text;
-            supplier.PostalCode = txtPostalCode.Text;
-            supplier.Country = txtCountry.Text;
-            supplier.Phone = txtPhone.Text;
-            supplier.Fax = txtFax.Text;
-            supplier.HomePage = txtHomePage.Text;
-            var supplierBLL = new SupplierBLL();
-            supplierBLL.Save(supplier);
-            LoadSupplier();
-            ClearField();
+            
+            //Boolean isValid = IsFormValid();
+            if (IsFormValid())
+            {
+
+                Supplier supplier = new Supplier();
+                supplier.Id = supplierId;
+                supplier.Name = txtName2.Text;
+                supplier.Address = txtAddress.Text;
+                supplier.Contact = txtContact.Text;
+                supplier.ContactTitle = txtContactTitle.Text;
+                supplier.City = txtCity.Text;
+                supplier.PostalCode = txtPostalCode.Text;
+                supplier.Country = txtCountry.Text;
+                supplier.Region = txtRegion.Text;
+                supplier.Phone = txtPhone.Text;
+                supplier.Fax = txtFax.Text;
+                supplier.HomePage = txtHomePage.Text;
+                var supplierBLL = new SupplierBLL();
+                supplierBLL.Save(supplier);
+                LoadSupplier();
+                ClearField();
+            }
+            
+        }
+
+        private Boolean IsFormValid()
+        {
+           epSupplier.Clear();
+            Boolean iv = true;
+
+            if (txtName2.Text == string.Empty)
+            {
+                txtName2.Focus();
+                epSupplier.SetError(txtName2 , "Can't empty");
+                iv = false;
+            }
+          
+
+           return iv;
         }
 
 
@@ -109,7 +142,7 @@ namespace Inventory.UI
 
         private void gvSupplier_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            ManageEdit(e);
+            
         }
 
         private void resetbtn_Click(object sender, EventArgs e)

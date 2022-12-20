@@ -70,6 +70,7 @@ namespace Inventory.DLL.Repositories
                         supplier.City = reader["City"] is DBNull ? null : reader["City"].ToString();
                         supplier.PostalCode = reader["PostalCode"] is DBNull ? null : reader["PostalCode"].ToString();
                         supplier.Country = reader["Country"] is DBNull ? null : reader["Country"].ToString();
+                        supplier.Region = reader["region"] is DBNull ? null : reader["Region"].ToString();
                         supplier.Phone = reader["Phone"] is DBNull ? null : reader["Phone"].ToString();
                         supplier.Fax = reader["Fax"] is DBNull ? null : reader["Fax"].ToString();
                         supplier.HomePage = reader["HomePage"] is DBNull ? null : reader["HomePage"].ToString();
@@ -185,12 +186,17 @@ namespace Inventory.DLL.Repositories
 
                 if (supplier.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Supplier(CreateTime, Name, Contact, ContactTitle, Address, City, PostalCode, Country, Phone, Fax, HomePage) VALUES (@CreateTime, @Name, @Contact, @ContactTitle, @Address, @City, @PostalCode, @Country, @Phone, @Fax, @HomePage); SELECT SCOPE_IDENTITY()";
+                    comm.CommandText = "INSERT INTO Supplier(CreateTime, Name, Contact, ContactTitle, Address," +
+                                       " City, PostalCode, Country, Region, Phone, Fax, HomePage) " +
+                                       "VALUES (@CreateTime, @Name, @Contact, @ContactTitle, @Address, @City, " +
+                                       "@PostalCode, @Country, @Region, @Phone, @Fax, @HomePage); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update Supplier SET Name = @Name, Contact = @Contact, ContactTitle = @ContactTitle, Address = @Address, City = @City, PostalCode= @PostalCode, Country= @Country, Phone = @Phone, Fax = @Fax, HomePage = @HomePage  WHERE Id = @Id";
+                    comm.CommandText = "Update Supplier SET Name = @Name, Contact = @Contact, ContactTitle = @ContactTitle," +
+                                       " Address = @Address, City = @City, PostalCode= @PostalCode, Country= @Country, Region = @Region,  " +
+                                       "Phone = @Phone, Fax = @Fax, HomePage = @HomePage  WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = supplier.Id;
                 }
                 comm.Parameters.Add("@Name", SqlDbType.VarChar).Value = supplier.Name;
@@ -198,6 +204,7 @@ namespace Inventory.DLL.Repositories
                 comm.Parameters.Add("@ContactTitle", SqlDbType.VarChar).Value = supplier.ContactTitle;
                 comm.Parameters.Add("@Address", SqlDbType.VarChar).Value = supplier.Address;
                 comm.Parameters.Add("@Country", SqlDbType.VarChar).Value = supplier.Country;
+                comm.Parameters.Add("@Region", SqlDbType.VarChar).Value= supplier.Region;
                 comm.Parameters.Add("@PostalCode", SqlDbType.VarChar).Value = supplier.PostalCode;
                 comm.Parameters.Add("@City", SqlDbType.VarChar).Value = supplier.City;
                 comm.Parameters.Add("@Phone", SqlDbType.VarChar).Value = supplier.Phone;

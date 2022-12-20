@@ -55,24 +55,26 @@
             this.label10 = new System.Windows.Forms.Label();
             this.gvSupplier = new System.Windows.Forms.DataGridView();
             this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.epSupplier = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contacttitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postalCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.faxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.homePageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epSupplier)).BeginInit();
             this.SuspendLayout();
             // 
             // resetbtn
@@ -277,19 +279,19 @@
             this.gvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvSupplier.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.createTimeDataGridViewTextBoxColumn,
+            this.isNewDataGridViewCheckBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.contactDataGridViewTextBoxColumn,
             this.contacttitleDataGridViewTextBoxColumn,
             this.addressDataGridViewTextBoxColumn,
             this.cityDataGridViewTextBoxColumn,
             this.postalCodeDataGridViewTextBoxColumn,
-            this.regionDataGridViewTextBoxColumn,
+            this.createTimeDataGridViewTextBoxColumn,
             this.countryDataGridViewTextBoxColumn,
+            this.regionDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn,
             this.faxDataGridViewTextBoxColumn,
             this.homePageDataGridViewTextBoxColumn,
-            this.isNewDataGridViewCheckBoxColumn,
             this.Edit,
             this.Delete});
             this.gvSupplier.DataSource = this.supplierBindingSource;
@@ -299,11 +301,16 @@
             this.gvSupplier.RowTemplate.Height = 24;
             this.gvSupplier.Size = new System.Drawing.Size(1174, 198);
             this.gvSupplier.TabIndex = 41;
+            this.gvSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvSupplier_CellClick);
             this.gvSupplier.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvSupplier_CellContentClick);
             // 
             // supplierBindingSource
             // 
             this.supplierBindingSource.DataSource = typeof(Inventory.DLL.Entities.Supplier);
+            // 
+            // epSupplier
+            // 
+            this.epSupplier.ContainerControl = this;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -311,16 +318,18 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
             this.idDataGridViewTextBoxColumn.Width = 125;
             // 
-            // createTimeDataGridViewTextBoxColumn
+            // isNewDataGridViewCheckBoxColumn
             // 
-            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
-            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createTimeDataGridViewTextBoxColumn.Width = 125;
+            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
+            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isNewDataGridViewCheckBoxColumn.Visible = false;
+            this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -373,14 +382,15 @@
             this.postalCodeDataGridViewTextBoxColumn.Visible = false;
             this.postalCodeDataGridViewTextBoxColumn.Width = 125;
             // 
-            // regionDataGridViewTextBoxColumn
+            // createTimeDataGridViewTextBoxColumn
             // 
-            this.regionDataGridViewTextBoxColumn.DataPropertyName = "Region";
-            this.regionDataGridViewTextBoxColumn.HeaderText = "Region";
-            this.regionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.regionDataGridViewTextBoxColumn.Name = "regionDataGridViewTextBoxColumn";
-            this.regionDataGridViewTextBoxColumn.Visible = false;
-            this.regionDataGridViewTextBoxColumn.Width = 125;
+            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
+            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createTimeDataGridViewTextBoxColumn.Visible = false;
+            this.createTimeDataGridViewTextBoxColumn.Width = 125;
             // 
             // countryDataGridViewTextBoxColumn
             // 
@@ -389,6 +399,15 @@
             this.countryDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
             this.countryDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // regionDataGridViewTextBoxColumn
+            // 
+            this.regionDataGridViewTextBoxColumn.DataPropertyName = "Region";
+            this.regionDataGridViewTextBoxColumn.HeaderText = "Region";
+            this.regionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.regionDataGridViewTextBoxColumn.Name = "regionDataGridViewTextBoxColumn";
+            this.regionDataGridViewTextBoxColumn.Visible = false;
+            this.regionDataGridViewTextBoxColumn.Width = 125;
             // 
             // phoneDataGridViewTextBoxColumn
             // 
@@ -417,21 +436,12 @@
             this.homePageDataGridViewTextBoxColumn.Visible = false;
             this.homePageDataGridViewTextBoxColumn.Width = 125;
             // 
-            // isNewDataGridViewCheckBoxColumn
-            // 
-            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
-            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isNewDataGridViewCheckBoxColumn.Visible = false;
-            this.isNewDataGridViewCheckBoxColumn.Width = 125;
-            // 
             // Edit
             // 
             this.Edit.HeaderText = "Edit";
             this.Edit.MinimumWidth = 6;
             this.Edit.Name = "Edit";
+            this.Edit.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.Edit.Width = 125;
             // 
             // Delete
@@ -476,6 +486,7 @@
             this.Load += new System.EventHandler(this.frmSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epSupplier)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,20 +520,21 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView gvSupplier;
         private System.Windows.Forms.BindingSource supplierBindingSource;
+        private System.Windows.Forms.ErrorProvider epSupplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contacttitleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn postalCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn regionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn homePageDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
     }
