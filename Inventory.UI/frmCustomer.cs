@@ -117,10 +117,5 @@ namespace Inventory.UI
 
             ClearField();
         }
-
-        private void gvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

@@ -87,5 +87,11 @@ namespace WinFormsApp1
             frmSupplier frmSupplier = new frmSupplier();
             frmSupplier.ShowDialog();
         }
+
+        private void btnCategories_Click(object sender, EventArgs e)
+        {
+            frmCategories frmCategories = new frmCategories();
+            frmCategories.ShowDialog();
+        }
     }
 }

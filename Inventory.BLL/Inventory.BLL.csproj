@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\CategoriesBLL.cs" />
     <Compile Include="BusinessLogic\CustomerBLL.cs" />
     <Compile Include="BusinessLogic\ProductBLL.cs" />
     <Compile Include="BusinessLogic\SupplierBLL.cs" />

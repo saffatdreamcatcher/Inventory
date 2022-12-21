@@ -84,7 +84,6 @@
             this.gvCustomer.Size = new System.Drawing.Size(1104, 271);
             this.gvCustomer.TabIndex = 0;
             this.gvCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCustomer_CellClick);
-            this.gvCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCustomer_CellContentClick);
             // 
             // Edit
             // 
