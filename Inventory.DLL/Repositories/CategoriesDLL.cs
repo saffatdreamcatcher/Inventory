@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace Inventory.DLL.Repositories
 {
     public class CategoriesDLL
     {
+        private string photoFilePath;
 
         public int Delete(int id)
         {
@@ -66,6 +68,7 @@ namespace Inventory.DLL.Repositories
                         var categories = new Categories(id, createTime);
                         categories.Name = reader["Name"] is DBNull ? null : reader["Name"].ToString();
                         categories.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
+                        //byte[] picture = File.ReadAllBytes(photoFilePath);
                         categoriess.Add(categories);
                     }
                 }
@@ -105,6 +108,7 @@ namespace Inventory.DLL.Repositories
                         categories = new Categories(id, createTime);
                         categories.Name = reader["Name"] is DBNull ? null : reader["Name"].ToString();
                         categories.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
+                        byte[] picture = File.ReadAllBytes(photoFilePath);
 
                     }
                 }
@@ -170,17 +174,17 @@ namespace Inventory.DLL.Repositories
 
                 if (categories.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Categories(CreateTime, Name, Description) VALUES(@CreateTime, @Name, @Description); SELECT SCOPE_IDENTITY()";
+                    comm.CommandText = "INSERT INTO Categories(CreateTime, Name, Description, Picture) VALUES(@CreateTime, @Name, @Description, @Picture); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update Categories SET Name = @Name, Description = @Description WHERE Id = @Id";
+                    comm.CommandText = "Update Categories SET Name = @Name, Description = @Description, Picture = @Picture WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = categories.Id;
                 }
                 comm.Parameters.Add("@Name", SqlDbType.VarChar).Value = categories.Name;
                 comm.Parameters.Add("@Description", SqlDbType.VarChar).Value = categories.Description;
-              
+                comm.Parameters.Add("@Picture", SqlDbType.Image).Value = categories.Picture;
                 if (categories.IsNew)
                 {
                     primaryKey = Convert.ToInt32(comm.ExecuteScalar());
@@ -202,8 +206,21 @@ namespace Inventory.DLL.Repositories
             }
             return primaryKey;
         }
-    
 
-}
+        public static byte[] GetPhoto(string filePath)
+        {
+            FileStream stream = new FileStream(
+                filePath, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(stream);
 
+            byte[] picture = reader.ReadBytes((int)stream.Length);
+
+            reader.Close();
+            stream.Close();
+
+            return picture;
+
+        }
+
+    }
 }

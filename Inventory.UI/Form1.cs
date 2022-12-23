@@ -37,9 +37,9 @@ namespace WinFormsApp1
 
     private void btnProduct_Click(object sender, EventArgs e)
     {
-      form1 p = new form1();
-      p.ShowDialog();
-    }
+            form1 p = new form1();
+            p.ShowDialog();
+        }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {

@@ -23,5 +23,8 @@ namespace Inventory.DLL.Entities
         private string description;
         public string Description { get => description; set => description = value; }
 
+        private byte[] picture ;
+        public byte[] Picture { get => picture; set => picture = value; }
+
     }
 }
