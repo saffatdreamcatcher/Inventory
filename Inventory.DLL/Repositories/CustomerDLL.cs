@@ -24,8 +24,8 @@ namespace Inventory.DLL.Repositories
 
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "Delete from Customer where Id = " + id.ToString();
-                var obj = comm.ExecuteNonQuery();
-                noOfRowAffected = Convert.ToInt32(obj);
+                noOfRowAffected = comm.ExecuteNonQuery();
+                
             }
             catch (SqlException ex)
             {

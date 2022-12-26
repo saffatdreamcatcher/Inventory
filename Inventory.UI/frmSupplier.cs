@@ -108,7 +108,7 @@ namespace Inventory.UI
         {
             gvSupplier.AutoGenerateColumns = false;
             SupplierBLL supplierBLL = new SupplierBLL();
-            var supplier = supplierBLL.GetAll();
+            List<Supplier> supplier = supplierBLL.GetAll();
             gvSupplier.DataSource = supplier;
 
         }

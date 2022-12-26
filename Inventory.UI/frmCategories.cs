@@ -40,6 +40,7 @@ namespace Inventory.UI
         {
             txtName.Text = string.Empty;
             txtDescription.Text = string.Empty;
+            txtPhotoFilePath.Text = string.Empty;
             categoriesId = 0;
         }
 
