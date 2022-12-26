@@ -42,5 +42,11 @@ namespace Inventory.UI
             frmCategories frmCategories = new frmCategories();
             frmCategories.ShowDialog();
         }
+
+        private void regionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegion frmRegion = new frmRegion();
+            frmRegion.ShowDialog();
+        }
     }
 }

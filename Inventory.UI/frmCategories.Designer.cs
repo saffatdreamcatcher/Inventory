@@ -36,8 +36,12 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gvCategories = new System.Windows.Forms.DataGridView();
-            this.epCategories = new System.Windows.Forms.ErrorProvider(this.components);
             this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.epCategories = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPhotoFilePath = new System.Windows.Forms.TextBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.oFDPhoto = new System.Windows.Forms.OpenFileDialog();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,13 +50,9 @@
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Picture = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPhotoFilePath = new System.Windows.Forms.TextBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.oFDPhoto = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gvCategories)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epCategories)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epCategories)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -131,15 +131,45 @@
             this.gvCategories.RowTemplate.Height = 24;
             this.gvCategories.Size = new System.Drawing.Size(714, 191);
             this.gvCategories.TabIndex = 18;
-            this.gvCategories.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCustomer_CellClick);
+            this.gvCategories.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCategories_CellClick);
+            // 
+            // categoriesBindingSource
+            // 
+            this.categoriesBindingSource.DataSource = typeof(Inventory.DLL.Entities.Categories);
             // 
             // epCategories
             // 
             this.epCategories.ContainerControl = this;
             // 
-            // categoriesBindingSource
+            // label3
             // 
-            this.categoriesBindingSource.DataSource = typeof(Inventory.DLL.Entities.Categories);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(67, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 16);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Photo";
+            // 
+            // txtPhotoFilePath
+            // 
+            this.txtPhotoFilePath.Location = new System.Drawing.Point(115, 76);
+            this.txtPhotoFilePath.Name = "txtPhotoFilePath";
+            this.txtPhotoFilePath.Size = new System.Drawing.Size(230, 22);
+            this.txtPhotoFilePath.TabIndex = 21;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(442, 120);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 22;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // oFDPhoto
+            // 
+            this.oFDPhoto.FileName = "openFileDialog1";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -192,14 +222,18 @@
             this.Edit.MinimumWidth = 6;
             this.Edit.Name = "Edit";
             this.Edit.Text = "Edit";
-            this.Edit.Width = 125;
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 80;
             // 
             // Delete
             // 
             this.Delete.HeaderText = "Delete";
             this.Delete.MinimumWidth = 6;
             this.Delete.Name = "Delete";
-            this.Delete.Width = 125;
+            this.Delete.Text = "Delete";
+            this.Delete.ToolTipText = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 80;
             // 
             // Picture
             // 
@@ -208,36 +242,6 @@
             this.Picture.Name = "Picture";
             this.Picture.Visible = false;
             this.Picture.Width = 125;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(67, 79);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 16);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Photo";
-            // 
-            // txtPhotoFilePath
-            // 
-            this.txtPhotoFilePath.Location = new System.Drawing.Point(115, 76);
-            this.txtPhotoFilePath.Name = "txtPhotoFilePath";
-            this.txtPhotoFilePath.Size = new System.Drawing.Size(230, 22);
-            this.txtPhotoFilePath.TabIndex = 21;
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Location = new System.Drawing.Point(419, 76);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 22;
-            this.btnBrowse.Text = "Browse";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // oFDPhoto
-            // 
-            this.oFDPhoto.FileName = "openFileDialog1";
             // 
             // frmCategories
             // 
@@ -258,8 +262,8 @@
             this.Text = "frmCategories";
             this.Load += new System.EventHandler(this.frmCategories_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvCategories)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epCategories)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epCategories)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,6 +280,10 @@
         private System.Windows.Forms.DataGridView gvCategories;
         private System.Windows.Forms.BindingSource categoriesBindingSource;
         private System.Windows.Forms.ErrorProvider epCategories;
+        private System.Windows.Forms.TextBox txtPhotoFilePath;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.OpenFileDialog oFDPhoto;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
@@ -284,9 +292,5 @@
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
         private System.Windows.Forms.DataGridViewImageColumn Picture;
-        private System.Windows.Forms.TextBox txtPhotoFilePath;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnBrowse;
-        private System.Windows.Forms.OpenFileDialog oFDPhoto;
     }
 }

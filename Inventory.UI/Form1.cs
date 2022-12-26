@@ -93,5 +93,11 @@ namespace WinFormsApp1
             frmCategories frmCategories = new frmCategories();
             frmCategories.ShowDialog();
         }
+
+        private void btnRegion_Click(object sender, EventArgs e)
+        {
+            frmRegion frmRegion = new frmRegion();
+            frmRegion.ShowDialog();
+        }
     }
 }
