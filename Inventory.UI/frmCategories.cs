@@ -45,7 +45,7 @@ namespace Inventory.UI
         }
 
 
-        private void gvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void gvCategories_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ManageEdit(e);
         }
