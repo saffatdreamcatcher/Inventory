@@ -107,6 +107,7 @@ namespace Inventory.UI
         {
             gvRegion.AutoGenerateColumns = false;
             RegionBLL regionBLL = new RegionBLL();
+            //string description = "Description = 'Eastern'";
             var region = regionBLL.GetAll();
             gvRegion.DataSource = region;
 

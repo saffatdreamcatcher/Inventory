@@ -23,12 +23,12 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public List<Region> GetAll()
+        public List<Region> GetAll(string where = "")
         {
             try
             {
                 var regionDLL = new RegionDLL();
-                return regionDLL.GetAll();
+                return regionDLL.GetAll(where);
             }
             catch (Exception ex)
             {
@@ -36,12 +36,12 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public Region GetById()
+        public Region GetById(int id)
         {
             try
             {
                 var regionDLL = new RegionDLL();
-                return regionDLL.GetById(0);
+                return regionDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -49,12 +49,12 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public int GetCount(Region region)
+        public int GetCount(string whereClause = "")
         {
             try
             {
                 var regionDLL = new RegionDLL();
-                return regionDLL.GetCount();
+                return regionDLL.GetCount(whereClause);
             }
             catch (Exception ex)
             {
