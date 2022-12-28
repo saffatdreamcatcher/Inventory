@@ -47,6 +47,7 @@
     <Compile Include="BusinessLogic\ProductBLL.cs" />
     <Compile Include="BusinessLogic\RegionBLL.cs" />
     <Compile Include="BusinessLogic\SupplierBLL.cs" />
+    <Compile Include="BusinessLogic\TerritoryBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

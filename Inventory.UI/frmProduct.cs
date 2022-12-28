@@ -1,6 +1,7 @@
 ﻿using Inventory.BLL.BusinessLogic;
 using Inventory.DLL.Entities;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MyApp
@@ -56,7 +57,7 @@ namespace MyApp
     {
             gvProduct.AutoGenerateColumns = false;
             ProductBLL productBLL = new ProductBLL();
-            var products = productBLL.GetAll();
+            List<Product> products = productBLL.GetAll();
             gvProduct.DataSource = products;
 
         }

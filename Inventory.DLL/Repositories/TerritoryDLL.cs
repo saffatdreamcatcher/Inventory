@@ -4,16 +4,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Inventory.DLL.Repositories
 {
-    public class CategoriesDLL
+    public class TerritoryDLL
     {
-        private string photoFilePath;
 
         public int Delete(int id)
         {
@@ -26,7 +24,7 @@ namespace Inventory.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Delete from Categories where Id = " + id.ToString();
+                comm.CommandText = "Delete from Territory where Id = " + id.ToString();
                 var obj = comm.ExecuteNonQuery();
                 noOfRowAffected = Convert.ToInt32(obj);
             }
@@ -42,10 +40,9 @@ namespace Inventory.DLL.Repositories
 
         }
 
-
-        public List<Categories> GetAll(string whereClause = "")
+        public List<Territory> GetAll(string whereClause = "")
         {
-            var categoriess = new List<Categories>();
+            var territory = new List<Territory>();
             var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             SqlConnection conn = new SqlConnection();
             if (!string.IsNullOrEmpty(whereClause))
@@ -58,18 +55,17 @@ namespace Inventory.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from Categories" + whereClause;
+                comm.CommandText = "Select * from Territory" + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
                     {
-                        int id = Convert.ToInt32(reader["id"]);
+                        int id = Convert.ToInt32(reader["Id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        var categories = new Categories(id, createTime);
-                        categories.Name = reader["Name"] is DBNull ? null : reader["Name"].ToString();
-                        categories.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
-                        
-                        categoriess.Add(categories);
+                        var territoryy = new Territory(id, createTime);
+                        territoryy.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
+                        territoryy.RegionId = Convert.ToInt32(reader["RegionId"]);
+                        territory.Add(territoryy);
                     }
                 }
 
@@ -82,13 +78,13 @@ namespace Inventory.DLL.Repositories
             {
                 conn.Close();
             }
-            return categoriess;
+            return territory;
         }
 
 
-        public Categories GetById(int id)
+        public Territory GetById(int id)
         {
-            var categories = new Categories();
+            var territory = new Territory();
             var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             SqlConnection conn = new SqlConnection();
 
@@ -98,17 +94,16 @@ namespace Inventory.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from Categories where id = " + id;
+                comm.CommandText = "Select * from Territory where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
                     {
-                        id = Convert.ToInt32(reader["id"]);
+                        id = Convert.ToInt32(reader["Id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        categories = new Categories(id, createTime);
-                        categories.Name = reader["Name"] is DBNull ? null : reader["Name"].ToString();
-                        categories.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
-                        byte[] picture = File.ReadAllBytes(photoFilePath);
+                        territory = new Territory(id, createTime);
+                        territory.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
+                        territory.RegionId = Convert.ToInt32(reader["RegionId"]);
 
                     }
                 }
@@ -123,15 +118,16 @@ namespace Inventory.DLL.Repositories
             {
                 conn.Close();
             }
-            return categories;
+            return territory;
 
         }
+
 
         public int GetCount(string whereClause = "")
         {
 
             int count = 0;
-            var categories = new Categories();
+            var territory = new Territory();
             var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             SqlConnection conn = new SqlConnection();
 
@@ -146,7 +142,7 @@ namespace Inventory.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select count(*) from Categories " + whereClause;
+                comm.CommandText = "Select count(*) from Territory " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());
             }
             catch (SqlException ex)
@@ -160,7 +156,7 @@ namespace Inventory.DLL.Repositories
             return count;
         }
 
-        public int Save(Categories categories)
+        public int Save(Territory territory)
         {
             int primaryKey = 0;
             var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
@@ -172,28 +168,29 @@ namespace Inventory.DLL.Repositories
 
                 SqlCommand comm = conn.CreateCommand();
 
-                if (categories.IsNew)
+                if (territory.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Categories(CreateTime, Name, Description, Picture) VALUES(@CreateTime, @Name, @Description, @Picture); SELECT SCOPE_IDENTITY()";
+                    comm.CommandText = "INSERT INTO Territory(CreateTime, Description, RegionId) VALUES(@CreateTime, @Description, @RegionId); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update Categories SET Name = @Name, Description = @Description, Picture = @Picture WHERE Id = @Id";
-                    comm.Parameters.Add("@Id", SqlDbType.Int).Value = categories.Id;
+                    comm.CommandText = "Update Territory SET Description = @Description, RegionId = @RegionId WHERE Id = @Id";
+                    comm.Parameters.Add("@Id", SqlDbType.Int).Value = territory.Id;
                 }
-                comm.Parameters.Add("@Name", SqlDbType.VarChar).Value = categories.Name;
-                comm.Parameters.Add("@Description", SqlDbType.VarChar).Value = categories.Description;
-                comm.Parameters.Add("@Picture", SqlDbType.Image).Value = categories.Picture;
-                if (categories.IsNew)
+                
+                comm.Parameters.Add("@Description", SqlDbType.VarChar).Value = territory.Description;
+                comm.Parameters.Add("@RegionId", SqlDbType.VarChar).Value = territory.RegionId;
+
+                if (territory.IsNew)
                 {
                     primaryKey = Convert.ToInt32(comm.ExecuteScalar());
-                    categories.Id = primaryKey;
+                    territory.Id = primaryKey;
                 }
                 else
                 {
                     comm.ExecuteNonQuery();
-                    primaryKey = categories.Id;
+                    primaryKey = territory.Id;
                 }
             }
             catch (SqlException ex)
@@ -205,21 +202,6 @@ namespace Inventory.DLL.Repositories
                 conn.Close();
             }
             return primaryKey;
-        }
-
-        public static byte[] GetPhoto(string filePath)
-        {
-            FileStream stream = new FileStream(
-                filePath, FileMode.Open, FileAccess.Read);
-            BinaryReader reader = new BinaryReader(stream);
-
-            byte[] picture = reader.ReadBytes((int)stream.Length);
-
-            reader.Close();
-            stream.Close();
-
-            return picture;
-
         }
 
     }

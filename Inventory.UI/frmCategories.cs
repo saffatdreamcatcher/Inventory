@@ -109,7 +109,7 @@ namespace Inventory.UI
         {
             gvCategories.AutoGenerateColumns = false;
             CategoriesBLL categoriesBLL = new CategoriesBLL();
-            var categories = categoriesBLL.GetAll();
+            List<Categories> categories = categoriesBLL.GetAll();
             gvCategories.DataSource = categories;
 
         }

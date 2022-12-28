@@ -48,5 +48,11 @@ namespace Inventory.UI
             frmRegion frmRegion = new frmRegion();
             frmRegion.ShowDialog();
         }
+
+        private void territoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTerritory frmTerritory = new frmTerritory(); 
+            frmTerritory.ShowDialog();
+        }
     }
 }
