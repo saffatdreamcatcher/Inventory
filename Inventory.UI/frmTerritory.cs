@@ -25,10 +25,10 @@ namespace Inventory.UI
         {
 
             RegionBLL regionBLL = new RegionBLL();
-            List<Region> regions = regionBLL.GetAll();
+            List<Region> regions = regionBLL.GetAll();   // calls getall method
             
             cboRegion.DataSource = regions;
-            cboRegion.ValueMember = "Id";
+            cboRegion.ValueMember = "Id";                 //combobox a id value assign kora
             cboRegion.DisplayMember = "Description";
 
 
@@ -37,7 +37,7 @@ namespace Inventory.UI
       private void LoadTerritory()
         {
             TerritoryBLL territoryBLL = new TerritoryBLL();
-            List<Territory> territory = territoryBLL.GetAll();
+            List<Territory> territory = territoryBLL.GetAll();     //List of territory, this cls  comes from get all DLL
             gvTerritory.DataSource = territory;
         }
 
@@ -58,9 +58,8 @@ namespace Inventory.UI
         {
             if (e.ColumnIndex == 5)
             {
-                territoryId = Convert.ToInt32(gvTerritory.Rows[e.RowIndex].Cells[0].Value);
+                territoryId = Convert.ToInt32(gvTerritory.Rows[e.RowIndex].Cells[0].Value);  // here field = territoryId
                 txtTerritory.Text = Convert.ToString(gvTerritory.Rows[e.RowIndex].Cells[1].Value);
-                
                 cboRegion.SelectedValue = Convert.ToInt32(gvTerritory.Rows[e.RowIndex].Cells[2].Value);
 
             }
@@ -99,8 +98,8 @@ namespace Inventory.UI
         {
             if (IsFormValid())
             {
-                Territory territory = new Territory();
-                territory.Id = territoryId;
+                Territory territory = new Territory();   //Territory class er instance territory
+                territory.Id = territoryId;              //territoryId field int type return kore
                 territory.RegionId = Convert.ToInt32(cboRegion.SelectedValue);
                 territory.Description = txtTerritory.Text;
                 

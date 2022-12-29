@@ -36,18 +36,18 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gvTerritory = new System.Windows.Forms.DataGridView();
+            this.territoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.epTerritory = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.territoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvTerritory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epTerritory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.territoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epTerritory)).BeginInit();
             this.SuspendLayout();
             // 
             // cboRegion
@@ -125,23 +125,13 @@
             this.gvTerritory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvTerritory_CellClick);
             this.gvTerritory.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gvTerritory_DataBindingComplete);
             // 
+            // territoryBindingSource
+            // 
+            this.territoryBindingSource.DataSource = typeof(Inventory.DLL.Entities.Territory);
+            // 
             // epTerritory
             // 
             this.epTerritory.ContainerControl = this;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 125;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Width = 125;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -187,9 +177,21 @@
             this.createTimeDataGridViewTextBoxColumn.Visible = false;
             this.createTimeDataGridViewTextBoxColumn.Width = 125;
             // 
-            // territoryBindingSource
+            // Edit
             // 
-            this.territoryBindingSource.DataSource = typeof(Inventory.DLL.Entities.Territory);
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.Width = 125;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ToolTipText = "Delete";
+            this.Delete.Width = 125;
             // 
             // frmTerritory
             // 
@@ -207,8 +209,8 @@
             this.Text = "frmTerritory";
             this.Load += new System.EventHandler(this.frmTerritory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvTerritory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epTerritory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.territoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epTerritory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

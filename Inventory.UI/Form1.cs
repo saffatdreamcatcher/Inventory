@@ -37,7 +37,7 @@ namespace WinFormsApp1
 
     private void btnProduct_Click(object sender, EventArgs e)
     {
-            form1 p = new form1();
+            frmProduct p = new frmProduct();
             p.ShowDialog();
         }
 

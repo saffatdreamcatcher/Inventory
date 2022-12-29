@@ -6,10 +6,10 @@ using System.Windows.Forms;
 
 namespace MyApp
 {
-  public partial class form1 : Form
+  public partial class frmProduct : Form
   {
     private int id =  0;
-    public form1()
+    public frmProduct()
     {
       InitializeComponent();
     }
@@ -79,5 +79,9 @@ namespace MyApp
       
     }
 
-  }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
 }
