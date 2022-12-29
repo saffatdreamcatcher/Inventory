@@ -48,26 +48,53 @@ namespace Inventory.UI
 
         private void supplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSupplier frmSupplier = new frmSupplier();
-            frmSupplier.ShowDialog();
+            //frmSupplier frmSupplier = new frmSupplier();
+            //frmSupplier.ShowDialog();
+            CloseAllForms();
+            frmSupplier myForm = new frmSupplier();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            this.pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
         }
 
         private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCategories frmCategories = new frmCategories();
-            frmCategories.ShowDialog();
+            //frmCategories frmCategories = new frmCategories();
+            //frmCategories.ShowDialog();
+            CloseAllForms();
+            frmCategories myForm = new frmCategories();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            this.pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
         }
 
         private void regionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRegion frmRegion = new frmRegion();
-            frmRegion.ShowDialog();
+            //frmRegion frmRegion = new frmRegion();
+            //frmRegion.ShowDialog();
+            CloseAllForms();
+            frmRegion myForm = new frmRegion();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            this.pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
         }
 
         private void territoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmTerritory frmTerritory = new frmTerritory();
-            frmTerritory.ShowDialog();
+            //frmTerritory frmTerritory = new frmTerritory();
+            //frmTerritory.ShowDialog();
+            frmTerritory myForm = new frmTerritory();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            this.pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
 
         }
 

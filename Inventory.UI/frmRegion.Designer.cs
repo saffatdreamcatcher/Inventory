@@ -42,6 +42,8 @@
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.regionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.epRegion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblRegion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvRegion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epRegion)).BeginInit();
@@ -49,7 +51,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(283, 66);
+            this.txtDescription.Location = new System.Drawing.Point(139, 75);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(323, 22);
@@ -57,7 +59,7 @@
             // 
             // resetbtn
             // 
-            this.resetbtn.Location = new System.Drawing.Point(365, 122);
+            this.resetbtn.Location = new System.Drawing.Point(233, 125);
             this.resetbtn.Name = "resetbtn";
             this.resetbtn.Size = new System.Drawing.Size(67, 23);
             this.resetbtn.TabIndex = 21;
@@ -67,7 +69,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(272, 122);
+            this.btnSave.Location = new System.Drawing.Point(139, 125);
             this.btnSave.Margin = new System.Windows.Forms.Padding(1);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(67, 23);
@@ -79,7 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(176, 72);
+            this.label2.Location = new System.Drawing.Point(32, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 16);
             this.label2.TabIndex = 22;
@@ -87,6 +89,9 @@
             // 
             // gvRegion
             // 
+            this.gvRegion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gvRegion.AutoGenerateColumns = false;
             this.gvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvRegion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -97,11 +102,11 @@
             this.Edit,
             this.Delete});
             this.gvRegion.DataSource = this.regionBindingSource;
-            this.gvRegion.Location = new System.Drawing.Point(148, 196);
+            this.gvRegion.Location = new System.Drawing.Point(21, 195);
             this.gvRegion.Name = "gvRegion";
             this.gvRegion.RowHeadersWidth = 51;
             this.gvRegion.RowTemplate.Height = 24;
-            this.gvRegion.Size = new System.Drawing.Size(500, 150);
+            this.gvRegion.Size = new System.Drawing.Size(767, 227);
             this.gvRegion.TabIndex = 23;
             this.gvRegion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvRegion_CellClick);
             // 
@@ -164,18 +169,43 @@
             // 
             this.epRegion.ContainerControl = this;
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(770, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(31, 23);
+            this.btnClose.TabIndex = 45;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lblRegion
+            // 
+            this.lblRegion.AutoSize = true;
+            this.lblRegion.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegion.ForeColor = System.Drawing.Color.Green;
+            this.lblRegion.Location = new System.Drawing.Point(21, 13);
+            this.lblRegion.Name = "lblRegion";
+            this.lblRegion.Size = new System.Drawing.Size(66, 22);
+            this.lblRegion.TabIndex = 46;
+            this.lblRegion.Text = "Region";
+            // 
             // frmRegion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
+            this.Controls.Add(this.lblRegion);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.gvRegion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.resetbtn);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtDescription);
             this.Name = "frmRegion";
-            this.Text = "frmRegion";
             this.Load += new System.EventHandler(this.frmRegion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvRegion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regionBindingSource)).EndInit();
@@ -200,5 +230,7 @@
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
         private System.Windows.Forms.BindingSource regionBindingSource;
         private System.Windows.Forms.ErrorProvider epRegion;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblRegion;
     }
 }

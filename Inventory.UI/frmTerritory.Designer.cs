@@ -36,8 +36,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gvTerritory = new System.Windows.Forms.DataGridView();
-            this.territoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.epTerritory = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +43,10 @@
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.territoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.epTerritory = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblTerritory = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvTerritory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.territoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epTerritory)).BeginInit();
@@ -53,15 +55,15 @@
             // cboRegion
             // 
             this.cboRegion.FormattingEnabled = true;
-            this.cboRegion.Location = new System.Drawing.Point(306, 29);
+            this.cboRegion.Location = new System.Drawing.Point(171, 72);
             this.cboRegion.Name = "cboRegion";
-            this.cboRegion.Size = new System.Drawing.Size(121, 24);
+            this.cboRegion.Size = new System.Drawing.Size(185, 24);
             this.cboRegion.TabIndex = 0;
             // 
             // lbRegion
             // 
             this.lbRegion.AutoSize = true;
-            this.lbRegion.Location = new System.Drawing.Point(210, 32);
+            this.lbRegion.Location = new System.Drawing.Point(95, 75);
             this.lbRegion.Name = "lbRegion";
             this.lbRegion.Size = new System.Drawing.Size(51, 16);
             this.lbRegion.TabIndex = 1;
@@ -69,15 +71,15 @@
             // 
             // txtTerritory
             // 
-            this.txtTerritory.Location = new System.Drawing.Point(306, 84);
+            this.txtTerritory.Location = new System.Drawing.Point(171, 127);
             this.txtTerritory.Name = "txtTerritory";
-            this.txtTerritory.Size = new System.Drawing.Size(159, 22);
+            this.txtTerritory.Size = new System.Drawing.Size(185, 22);
             this.txtTerritory.TabIndex = 2;
             // 
             // lbTerritoryDes
             // 
             this.lbTerritoryDes.AutoSize = true;
-            this.lbTerritoryDes.Location = new System.Drawing.Point(163, 90);
+            this.lbTerritoryDes.Location = new System.Drawing.Point(28, 133);
             this.lbTerritoryDes.Name = "lbTerritoryDes";
             this.lbTerritoryDes.Size = new System.Drawing.Size(128, 16);
             this.lbTerritoryDes.TabIndex = 3;
@@ -85,7 +87,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(242, 148);
+            this.btnSave.Location = new System.Drawing.Point(171, 169);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 4;
@@ -95,7 +97,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(352, 148);
+            this.btnReset.Location = new System.Drawing.Point(281, 169);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 5;
@@ -105,6 +107,9 @@
             // 
             // gvTerritory
             // 
+            this.gvTerritory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gvTerritory.AutoGenerateColumns = false;
             this.gvTerritory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvTerritory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -120,18 +125,10 @@
             this.gvTerritory.Name = "gvTerritory";
             this.gvTerritory.RowHeadersWidth = 51;
             this.gvTerritory.RowTemplate.Height = 24;
-            this.gvTerritory.Size = new System.Drawing.Size(690, 157);
+            this.gvTerritory.Size = new System.Drawing.Size(1197, 224);
             this.gvTerritory.TabIndex = 6;
             this.gvTerritory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvTerritory_CellClick);
             this.gvTerritory.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gvTerritory_DataBindingComplete);
-            // 
-            // territoryBindingSource
-            // 
-            this.territoryBindingSource.DataSource = typeof(Inventory.DLL.Entities.Territory);
-            // 
-            // epTerritory
-            // 
-            this.epTerritory.ContainerControl = this;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -193,11 +190,45 @@
             this.Delete.ToolTipText = "Delete";
             this.Delete.Width = 125;
             // 
+            // territoryBindingSource
+            // 
+            this.territoryBindingSource.DataSource = typeof(Inventory.DLL.Entities.Territory);
+            // 
+            // epTerritory
+            // 
+            this.epTerritory.ContainerControl = this;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1190, -3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(31, 23);
+            this.btnClose.TabIndex = 46;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lblTerritory
+            // 
+            this.lblTerritory.AutoSize = true;
+            this.lblTerritory.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTerritory.ForeColor = System.Drawing.Color.Green;
+            this.lblTerritory.Location = new System.Drawing.Point(21, 14);
+            this.lblTerritory.Name = "lblTerritory";
+            this.lblTerritory.Size = new System.Drawing.Size(81, 22);
+            this.lblTerritory.TabIndex = 47;
+            this.lblTerritory.Text = "Territory";
+            // 
             // frmTerritory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1221, 450);
+            this.ControlBox = false;
+            this.Controls.Add(this.lblTerritory);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.gvTerritory);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSave);
@@ -205,8 +236,9 @@
             this.Controls.Add(this.txtTerritory);
             this.Controls.Add(this.lbRegion);
             this.Controls.Add(this.cboRegion);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmTerritory";
-            this.Text = "frmTerritory";
             this.Load += new System.EventHandler(this.frmTerritory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvTerritory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.territoryBindingSource)).EndInit();
@@ -234,5 +266,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblTerritory;
     }
 }

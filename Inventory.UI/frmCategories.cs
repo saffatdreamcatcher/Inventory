@@ -148,5 +148,10 @@ namespace Inventory.UI
 
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

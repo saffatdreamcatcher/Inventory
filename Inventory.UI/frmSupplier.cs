@@ -154,5 +154,15 @@ namespace Inventory.UI
         {
             SaveCustomer();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

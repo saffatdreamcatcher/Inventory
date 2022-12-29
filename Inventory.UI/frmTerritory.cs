@@ -24,12 +24,12 @@ namespace Inventory.UI
         private void LoadRegion()
         {
 
-            RegionBLL regionBLL = new RegionBLL();
-            List<Region> regions = regionBLL.GetAll();   // calls getall method
+            RegionBLL regionBLL = new RegionBLL();        // Instance/object creation of RegionBLL
+            List<Region> regions = regionBLL.GetAll();   // calls getall method of regionBLL
             
-            cboRegion.DataSource = regions;
-            cboRegion.ValueMember = "Id";                 //combobox a id value assign kora
-            cboRegion.DisplayMember = "Description";
+            cboRegion.DataSource = regions;                // combobox DataSource property assign to list of region
+            cboRegion.ValueMember = "Id";                 //combobox a value member property assign to id
+            cboRegion.DisplayMember = "Description";      //display member property assign to description  
 
 
         }
@@ -37,8 +37,9 @@ namespace Inventory.UI
       private void LoadTerritory()
         {
             TerritoryBLL territoryBLL = new TerritoryBLL();
-            List<Territory> territory = territoryBLL.GetAll();     //List of territory, this cls  comes from get all DLL
-            gvTerritory.DataSource = territory;
+            List<Territory> territory = territoryBLL.GetAll();     //List of territory, this list comes from BLL-> get all DLL
+                                                                   //method call
+            gvTerritory.DataSource = territory;                    // Datsource property assign to territory
         }
 
 
@@ -139,6 +140,11 @@ namespace Inventory.UI
             {
                 //row.HeaderCell.Value = row.Cells[0].Value.ToString();
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 

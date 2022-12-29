@@ -36,12 +36,6 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gvCategories = new System.Windows.Forms.DataGridView();
-            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.epCategories = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPhotoFilePath = new System.Windows.Forms.TextBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.oFDPhoto = new System.Windows.Forms.OpenFileDialog();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +44,14 @@
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Picture = new System.Windows.Forms.DataGridViewImageColumn();
+            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.epCategories = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPhotoFilePath = new System.Windows.Forms.TextBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.oFDPhoto = new System.Windows.Forms.OpenFileDialog();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblCategories = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvCategories)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epCategories)).BeginInit();
@@ -57,7 +59,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(227, 120);
+            this.btnSave.Location = new System.Drawing.Point(76, 143);
             this.btnSave.Margin = new System.Windows.Forms.Padding(1);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(88, 23);
@@ -69,7 +71,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 43);
+            this.label1.Location = new System.Drawing.Point(26, 67);
             this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 16);
@@ -78,15 +80,15 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(121, 43);
+            this.txtName.Location = new System.Drawing.Point(82, 67);
             this.txtName.Margin = new System.Windows.Forms.Padding(1);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(230, 22);
+            this.txtName.Size = new System.Drawing.Size(262, 22);
             this.txtName.TabIndex = 4;
             // 
             // resetbtn
             // 
-            this.resetbtn.Location = new System.Drawing.Point(328, 120);
+            this.resetbtn.Location = new System.Drawing.Point(182, 143);
             this.resetbtn.Name = "resetbtn";
             this.resetbtn.Size = new System.Drawing.Size(72, 23);
             this.resetbtn.TabIndex = 15;
@@ -96,16 +98,16 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(507, 40);
+            this.txtDescription.Location = new System.Drawing.Point(468, 64);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(175, 22);
+            this.txtDescription.Size = new System.Drawing.Size(243, 22);
             this.txtDescription.TabIndex = 17;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(416, 46);
+            this.label2.Location = new System.Drawing.Point(377, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 16);
             this.label2.TabIndex = 16;
@@ -113,6 +115,9 @@
             // 
             // gvCategories
             // 
+            this.gvCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gvCategories.AutoGenerateColumns = false;
             this.gvCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvCategories.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -125,51 +130,13 @@
             this.Delete,
             this.Picture});
             this.gvCategories.DataSource = this.categoriesBindingSource;
-            this.gvCategories.Location = new System.Drawing.Point(38, 170);
+            this.gvCategories.Location = new System.Drawing.Point(29, 196);
             this.gvCategories.Name = "gvCategories";
             this.gvCategories.RowHeadersWidth = 51;
             this.gvCategories.RowTemplate.Height = 24;
-            this.gvCategories.Size = new System.Drawing.Size(714, 191);
+            this.gvCategories.Size = new System.Drawing.Size(1160, 276);
             this.gvCategories.TabIndex = 18;
             this.gvCategories.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCategories_CellClick);
-            // 
-            // categoriesBindingSource
-            // 
-            this.categoriesBindingSource.DataSource = typeof(Inventory.DLL.Entities.Categories);
-            // 
-            // epCategories
-            // 
-            this.epCategories.ContainerControl = this;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(67, 79);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 16);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Photo";
-            // 
-            // txtPhotoFilePath
-            // 
-            this.txtPhotoFilePath.Location = new System.Drawing.Point(115, 76);
-            this.txtPhotoFilePath.Name = "txtPhotoFilePath";
-            this.txtPhotoFilePath.Size = new System.Drawing.Size(230, 22);
-            this.txtPhotoFilePath.TabIndex = 21;
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Location = new System.Drawing.Point(442, 120);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 22;
-            this.btnBrowse.Text = "Browse";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // oFDPhoto
-            // 
-            this.oFDPhoto.FileName = "openFileDialog1";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -243,11 +210,76 @@
             this.Picture.Visible = false;
             this.Picture.Width = 125;
             // 
+            // categoriesBindingSource
+            // 
+            this.categoriesBindingSource.DataSource = typeof(Inventory.DLL.Entities.Categories);
+            // 
+            // epCategories
+            // 
+            this.epCategories.ContainerControl = this;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(28, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 16);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Photo";
+            // 
+            // txtPhotoFilePath
+            // 
+            this.txtPhotoFilePath.Location = new System.Drawing.Point(76, 100);
+            this.txtPhotoFilePath.Name = "txtPhotoFilePath";
+            this.txtPhotoFilePath.Size = new System.Drawing.Size(268, 22);
+            this.txtPhotoFilePath.TabIndex = 21;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(269, 143);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 22;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // oFDPhoto
+            // 
+            this.oFDPhoto.FileName = "openFileDialog1";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1210, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(31, 23);
+            this.btnClose.TabIndex = 44;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lblCategories
+            // 
+            this.lblCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCategories.AutoSize = true;
+            this.lblCategories.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategories.ForeColor = System.Drawing.Color.Green;
+            this.lblCategories.Location = new System.Drawing.Point(24, 16);
+            this.lblCategories.Name = "lblCategories";
+            this.lblCategories.Size = new System.Drawing.Size(95, 22);
+            this.lblCategories.TabIndex = 45;
+            this.lblCategories.Text = "Categories";
+            // 
             // frmCategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1240, 484);
+            this.ControlBox = false;
+            this.Controls.Add(this.lblCategories);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtPhotoFilePath);
             this.Controls.Add(this.label3);
@@ -258,8 +290,9 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCategories";
-            this.Text = "frmCategories";
             this.Load += new System.EventHandler(this.frmCategories_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvCategories)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
@@ -292,5 +325,7 @@
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
         private System.Windows.Forms.DataGridViewImageColumn Picture;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblCategories;
     }
 }
