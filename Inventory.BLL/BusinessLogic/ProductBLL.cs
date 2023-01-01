@@ -19,12 +19,12 @@ namespace Inventory.BLL.BusinessLogic
         throw ex;
       }
     }
-    public List<Product> GetAll()
+    public List<Product> GetAll(string whereclause = "")
     {
       try
       {
         var productDLL = new ProductDLL();
-        return productDLL.GetAll();
+        return productDLL.GetAll(whereclause);
       }
       catch (Exception ex)
       {
@@ -32,12 +32,12 @@ namespace Inventory.BLL.BusinessLogic
       }
     }
 
-        public Product GetById()
+        public Product GetById(int id)
         { 
         try
             {
                 var productDLL = new ProductDLL();    
-                return productDLL.GetById(0);
+                return productDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -45,12 +45,12 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public int GetCount(Product product)
+        public int GetCount(string whereclause = "")
         {
             try
             {
                 var productDLL = new ProductDLL();
-                return productDLL.GetCount ();
+                return productDLL.GetCount (whereclause);
             }
             catch (Exception ex)
             {

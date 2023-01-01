@@ -76,6 +76,12 @@
     <Compile Include="frmRegion.Designer.cs">
       <DependentUpon>frmRegion.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmShipper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShipper.Designer.cs">
+      <DependentUpon>frmShipper.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     <EmbeddedResource Include="frmRegion.resx">
       <DependentUpon>frmRegion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmShipper.resx">
+      <DependentUpon>frmShipper.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSupplier.resx">
       <DependentUpon>frmSupplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,15 +138,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\frmShipper.datasource" />
+    <None Include="Properties\DataSources\Inventory.BLL.BusinessLogic.ShipperBLL.datasource" />
     <None Include="Properties\DataSources\Inventory.DLL.Entities.Categories.datasource" />
     <None Include="Properties\DataSources\Inventory.DLL.Entities.Customer.datasource" />
     <None Include="Properties\DataSources\Inventory.DLL.Entities.Product.datasource" />
     <None Include="Properties\DataSources\Inventory.DLL.Entities.Product1.datasource" />
     <None Include="Properties\DataSources\Inventory.DLL.Entities.Region.datasource" />
+    <None Include="Properties\DataSources\Inventory.DLL.Entities.Shipper.datasource" />
     <None Include="Properties\DataSources\Inventory.DLL.Entities.Supplier.datasource" />
     <None Include="Properties\DataSources\Inventory.DLL.Entities.Territory.datasource" />
     <None Include="Properties\DataSources\Inventory.DLL.Repositories.CategoriesDLL.datasource" />
     <None Include="Properties\DataSources\Inventory.DLL.Repositories.RegionDLL.datasource" />
+    <None Include="Properties\DataSources\Inventory.DLL.Repositories.ShipperDLL.datasource" />
     <None Include="Properties\DataSources\Inventory.DLL.Repositories.TerritoryDLL.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

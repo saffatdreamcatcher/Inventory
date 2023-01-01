@@ -25,25 +25,22 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public List<Territory> GetAll()
+        public List<Territory> GetAll(string whereclause = "")
         {
             try
             {
                 var territoryDLL = new TerritoryDLL();
-                return territoryDLL.GetAll();
+                return territoryDLL.GetAll(whereclause);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            catch (Exception ex) { throw ex;  }
         }
 
-        public Territory GetById()
+        public Territory GetById(int id)
         {
             try
             {
                 var territoryDLL = new TerritoryDLL();
-                return territoryDLL.GetById(0);
+                return territoryDLL.GetById(id);
             }
             catch (Exception ex)
             {

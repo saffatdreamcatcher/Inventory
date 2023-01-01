@@ -112,5 +112,11 @@ namespace Inventory.UI
         {
             Application.Exit();
         }
+
+        private void shipperToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShipper frmShipper = new frmShipper();
+            frmShipper.ShowDialog();
+        }
     }
 }

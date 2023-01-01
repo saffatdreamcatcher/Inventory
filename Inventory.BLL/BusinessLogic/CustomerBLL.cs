@@ -24,12 +24,12 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public List<Customer> GetAll()
+        public List<Customer> GetAll(string whereclause = "")
         {
             try
             {
                 var customerDLL = new CustomerDLL();
-                return customerDLL.GetAll();
+                return customerDLL.GetAll(whereclause);
             }
             catch (Exception ex)
             {
@@ -37,12 +37,12 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public Customer GetById()
+        public Customer GetById(int id)
         {
             try
             {
                 var customerDLL = new CustomerDLL();
-                return customerDLL.GetById(0);
+                return customerDLL.GetById(id);
             }
             catch (Exception ex)
             {

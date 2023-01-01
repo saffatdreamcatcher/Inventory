@@ -47,6 +47,7 @@
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Region.cs" />
+    <Compile Include="Entities\Shipper.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\Territory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Repositories\CustomerDLL.cs" />
     <Compile Include="Repositories\ProductDLL.cs" />
     <Compile Include="Repositories\RegionDLL.cs" />
+    <Compile Include="Repositories\ShipperDLL.cs" />
     <Compile Include="Repositories\SupplierDLL.cs" />
     <Compile Include="Repositories\TerritoryDLL.cs" />
   </ItemGroup>

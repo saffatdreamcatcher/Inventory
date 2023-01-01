@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace Inventory.BLL.BusinessLogic
 {
-    public class SupplierBLL
+    public class ShipperBLL
     {
-
-        public int Save(Supplier supplier)
+        public int Save(Shipper shipper)
         {
             try
             {
-                var supplierDLL = new SupplierDLL();
-                return supplierDLL.Save(supplier);
+                var shipperDLL = new ShipperDLL();
+                return shipperDLL.Save(shipper);
             }
             catch (Exception ex)
             {
@@ -24,12 +23,12 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public List<Supplier> GetAll(string whereclause= "")
+        public List<Shipper> GetAll(string where = "")
         {
             try
             {
-                var supplierDLL = new SupplierDLL();
-                return supplierDLL.GetAll(whereclause);
+                var shipperDLL = new ShipperDLL();
+                return shipperDLL.GetAll(where);
             }
             catch (Exception ex)
             {
@@ -37,12 +36,12 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public Supplier GetById(int id)
+        public Customer GetById(int id)
         {
             try
             {
-                var supplierDLL = new SupplierDLL();
-                return supplierDLL.GetById(id);
+                var customerDLL = new CustomerDLL();
+                return customerDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -50,12 +49,12 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public int GetCount(string whereclause = "")
+        public int GetCount(Shipper shipper)
         {
             try
             {
-                var supplierDLL = new SupplierDLL();
-                return supplierDLL.GetCount(whereclause);
+                var shipperDLL = new ShipperDLL();
+                return shipperDLL.GetCount();
             }
             catch (Exception ex)
             {
@@ -68,17 +67,14 @@ namespace Inventory.BLL.BusinessLogic
         {
             try
             {
-                var supplierDLL = new SupplierDLL();
-                //int d = supplierDLL.Delete(id);
-                //return d;
-                return supplierDLL.Delete(id);
+                var shipperDLL = new ShipperDLL();
+                return shipperDLL.Delete(id);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
 
     }
 }
