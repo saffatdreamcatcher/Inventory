@@ -36,17 +36,18 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gvTerritory = new System.Windows.Forms.DataGridView();
+            this.territoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.epTerritory = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblTerritory = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.territoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.epTerritory = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnClose = new System.Windows.Forms.Button();
-            this.lblTerritory = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvTerritory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.territoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epTerritory)).BeginInit();
@@ -114,6 +115,7 @@
             this.gvTerritory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvTerritory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
+            this.RegionName,
             this.descriptionDataGridViewTextBoxColumn,
             this.regionIdDataGridViewTextBoxColumn,
             this.isNewDataGridViewCheckBoxColumn,
@@ -129,66 +131,6 @@
             this.gvTerritory.TabIndex = 6;
             this.gvTerritory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvTerritory_CellClick);
             this.gvTerritory.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gvTerritory_DataBindingComplete);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // regionIdDataGridViewTextBoxColumn
-            // 
-            this.regionIdDataGridViewTextBoxColumn.DataPropertyName = "RegionId";
-            this.regionIdDataGridViewTextBoxColumn.HeaderText = "RegionId";
-            this.regionIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.regionIdDataGridViewTextBoxColumn.Name = "regionIdDataGridViewTextBoxColumn";
-            this.regionIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // isNewDataGridViewCheckBoxColumn
-            // 
-            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
-            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isNewDataGridViewCheckBoxColumn.Visible = false;
-            this.isNewDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // createTimeDataGridViewTextBoxColumn
-            // 
-            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
-            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createTimeDataGridViewTextBoxColumn.Visible = false;
-            this.createTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.Width = 125;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ToolTipText = "Delete";
-            this.Delete.Width = 125;
             // 
             // territoryBindingSource
             // 
@@ -219,6 +161,78 @@
             this.lblTerritory.Size = new System.Drawing.Size(81, 22);
             this.lblTerritory.TabIndex = 47;
             this.lblTerritory.Text = "Territory";
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // RegionName
+            // 
+            this.RegionName.DataPropertyName = "RegionName";
+            this.RegionName.HeaderText = "Region Name";
+            this.RegionName.MinimumWidth = 6;
+            this.RegionName.Name = "RegionName";
+            this.RegionName.Width = 125;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // regionIdDataGridViewTextBoxColumn
+            // 
+            this.regionIdDataGridViewTextBoxColumn.DataPropertyName = "RegionId";
+            this.regionIdDataGridViewTextBoxColumn.HeaderText = "RegionId";
+            this.regionIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.regionIdDataGridViewTextBoxColumn.Name = "regionIdDataGridViewTextBoxColumn";
+            this.regionIdDataGridViewTextBoxColumn.Visible = false;
+            this.regionIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // isNewDataGridViewCheckBoxColumn
+            // 
+            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
+            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isNewDataGridViewCheckBoxColumn.Visible = false;
+            this.isNewDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // createTimeDataGridViewTextBoxColumn
+            // 
+            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
+            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createTimeDataGridViewTextBoxColumn.Visible = false;
+            this.createTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 125;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.ToolTipText = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 125;
             // 
             // frmTerritory
             // 
@@ -259,14 +273,15 @@
         private System.Windows.Forms.DataGridView gvTerritory;
         private System.Windows.Forms.ErrorProvider epTerritory;
         private System.Windows.Forms.BindingSource territoryBindingSource;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblTerritory;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegionName;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn regionIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lblTerritory;
     }
 }

@@ -57,14 +57,14 @@ namespace Inventory.UI
 
         private void ManageEdit(DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 6)
             {
                 territoryId = Convert.ToInt32(gvTerritory.Rows[e.RowIndex].Cells[0].Value);  // here field = territoryId
-                txtTerritory.Text = Convert.ToString(gvTerritory.Rows[e.RowIndex].Cells[1].Value);
-                cboRegion.SelectedValue = Convert.ToInt32(gvTerritory.Rows[e.RowIndex].Cells[2].Value);
+                txtTerritory.Text = Convert.ToString(gvTerritory.Rows[e.RowIndex].Cells[2].Value);
+                cboRegion.SelectedValue = Convert.ToInt32(gvTerritory.Rows[e.RowIndex].Cells[3].Value);
 
             }
-            else if (e.ColumnIndex == 6)
+            else if (e.ColumnIndex == 7)
             {
                 var id = Convert.ToInt32(gvTerritory.Rows[e.RowIndex].Cells[0].Value);
                 DeleteTerritory(id);

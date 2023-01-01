@@ -23,5 +23,9 @@ namespace Inventory.DLL.Entities
 
         private int regionId;  //field
         public int RegionId { get => regionId; set => regionId = value; }   //propery= RegionId
+
+        private string regionName;
+
+        public string RegionName { get => regionName; set => regionName = value; }
     }
 }

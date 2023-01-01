@@ -42,7 +42,7 @@ namespace Inventory.DLL.Repositories
 
         public List<Territory> GetAll(string whereClause = "")
         {
-            var territory = new List<Territory>();
+            List<Territory> territories = new List<Territory>();
             var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             SqlConnection conn = new SqlConnection();
             if (!string.IsNullOrEmpty(whereClause))
@@ -55,7 +55,8 @@ namespace Inventory.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from Territory" + whereClause;
+                comm.CommandText = "Select Territory.*, Region.Description AS RegionName from Territory " +
+                                   "inner join Region on Territory.RegionId = Region.Id " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -65,7 +66,8 @@ namespace Inventory.DLL.Repositories
                         var territoryy = new Territory(id, createTime);
                         territoryy.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
                         territoryy.RegionId = Convert.ToInt32(reader["RegionId"]);
-                        territory.Add(territoryy);
+                        territoryy.RegionName = reader["RegionName"].ToString();
+                        territories.Add(territoryy);
                     }
                 }
 
@@ -78,7 +80,7 @@ namespace Inventory.DLL.Repositories
             {
                 conn.Close();
             }
-            return territory;
+            return territories;
         }
 
 
@@ -94,7 +96,8 @@ namespace Inventory.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from Territory where id = " + id;
+                comm.CommandText = "Select Territory.*, Region.Description AS RegionName from Territory " +
+                                   "inner join Region on Territory.RegionId = Region.Id " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -104,7 +107,7 @@ namespace Inventory.DLL.Repositories
                         territory = new Territory(id, createTime);
                         territory.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
                         territory.RegionId = Convert.ToInt32(reader["RegionId"]);
-
+                        territory.RegionName = reader["RegionName"].ToString();
                     }
                 }
 
