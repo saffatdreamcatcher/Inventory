@@ -38,25 +38,27 @@
             this.txtsearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.gvShipper = new System.Windows.Forms.DataGridView();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.epShipper = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.shipperBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.epShipper = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblShipper = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvShipper)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipperBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epShipper)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipperBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCompanyName
             // 
             this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.Location = new System.Drawing.Point(49, 45);
+            this.lblCompanyName.Location = new System.Drawing.Point(38, 79);
             this.lblCompanyName.Name = "lblCompanyName";
             this.lblCompanyName.Size = new System.Drawing.Size(102, 16);
             this.lblCompanyName.TabIndex = 0;
@@ -65,7 +67,7 @@
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(49, 94);
+            this.lblPhone.Location = new System.Drawing.Point(49, 119);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(46, 16);
             this.lblPhone.TabIndex = 1;
@@ -73,14 +75,14 @@
             // 
             // txtCompanyName
             // 
-            this.txtCompanyName.Location = new System.Drawing.Point(157, 39);
+            this.txtCompanyName.Location = new System.Drawing.Point(166, 76);
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(100, 22);
             this.txtCompanyName.TabIndex = 2;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(157, 94);
+            this.txtPhone.Location = new System.Drawing.Point(166, 119);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 22);
             this.txtPhone.TabIndex = 3;
@@ -124,6 +126,9 @@
             // 
             // gvShipper
             // 
+            this.gvShipper.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gvShipper.AutoGenerateColumns = false;
             this.gvShipper.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvShipper.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -139,9 +144,40 @@
             this.gvShipper.Name = "gvShipper";
             this.gvShipper.RowHeadersWidth = 51;
             this.gvShipper.RowTemplate.Height = 24;
-            this.gvShipper.Size = new System.Drawing.Size(663, 150);
+            this.gvShipper.Size = new System.Drawing.Size(742, 187);
             this.gvShipper.TabIndex = 8;
             this.gvShipper.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvShipper_CellContentClick);
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 125;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 125;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(92, 237);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Search By Company";
+            // 
+            // epShipper
+            // 
+            this.epShipper.ContainerControl = this;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -188,46 +224,41 @@
             this.isNewDataGridViewCheckBoxColumn.Visible = false;
             this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 125;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 125;
-            // 
             // shipperBindingSource
             // 
             this.shipperBindingSource.DataSource = typeof(Inventory.DLL.Entities.Shipper);
             // 
-            // label1
+            // btnClose
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 237);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 16);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Search By Company";
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(871, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(31, 23);
+            this.btnClose.TabIndex = 46;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // epShipper
+            // lblShipper
             // 
-            this.epShipper.ContainerControl = this;
+            this.lblShipper.AutoSize = true;
+            this.lblShipper.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShipper.ForeColor = System.Drawing.Color.Green;
+            this.lblShipper.Location = new System.Drawing.Point(27, 13);
+            this.lblShipper.Name = "lblShipper";
+            this.lblShipper.Size = new System.Drawing.Size(73, 22);
+            this.lblShipper.TabIndex = 47;
+            this.lblShipper.Text = "Shipper";
             // 
             // frmShipper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(901, 487);
+            this.ControlBox = false;
+            this.Controls.Add(this.lblShipper);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gvShipper);
             this.Controls.Add(this.btnSearch);
@@ -238,12 +269,14 @@
             this.Controls.Add(this.txtCompanyName);
             this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.lblCompanyName);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmShipper";
             this.Text = "frmShipper";
             this.Load += new System.EventHandler(this.frmShipper_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvShipper)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipperBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epShipper)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipperBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +303,7 @@
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider epShipper;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblShipper;
     }
 }

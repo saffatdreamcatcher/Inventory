@@ -124,5 +124,10 @@ namespace Inventory.UI
         {
             ClearField();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

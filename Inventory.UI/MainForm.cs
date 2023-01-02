@@ -115,8 +115,15 @@ namespace Inventory.UI
 
         private void shipperToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmShipper frmShipper = new frmShipper();
-            frmShipper.ShowDialog();
+            //frmShipper frmShipper = new frmShipper();
+            //frmShipper.ShowDialog();
+
+            frmShipper myForm = new frmShipper();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            this.pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
         }
     }
 }
