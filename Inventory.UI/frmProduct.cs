@@ -63,10 +63,10 @@ namespace MyApp
         }
 
         private void ClearField()
-    {
-      txtName.Text = string.Empty;
-      id = 0;
-    }
+        {
+          txtName.Text = string.Empty;
+         id = 0;
+        }
 
     private void DeleteProduct(int id)
     {

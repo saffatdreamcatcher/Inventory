@@ -38,7 +38,6 @@
             this.txtsearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.gvShipper = new System.Windows.Forms.DataGridView();
-            this.shipperBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,9 +45,12 @@
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.shipperBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.epShipper = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gvShipper)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipperBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epShipper)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCompanyName
@@ -91,6 +93,7 @@
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnReset
             // 
@@ -100,6 +103,7 @@
             this.btnReset.TabIndex = 5;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // txtsearch
             // 
@@ -138,10 +142,6 @@
             this.gvShipper.Size = new System.Drawing.Size(663, 150);
             this.gvShipper.TabIndex = 8;
             this.gvShipper.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvShipper_CellContentClick);
-            // 
-            // shipperBindingSource
-            // 
-            this.shipperBindingSource.DataSource = typeof(Inventory.DLL.Entities.Shipper);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -206,6 +206,10 @@
             this.Delete.UseColumnTextForLinkValue = true;
             this.Delete.Width = 125;
             // 
+            // shipperBindingSource
+            // 
+            this.shipperBindingSource.DataSource = typeof(Inventory.DLL.Entities.Shipper);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -214,6 +218,10 @@
             this.label1.Size = new System.Drawing.Size(130, 16);
             this.label1.TabIndex = 9;
             this.label1.Text = "Search By Company";
+            // 
+            // epShipper
+            // 
+            this.epShipper.ContainerControl = this;
             // 
             // frmShipper
             // 
@@ -235,6 +243,7 @@
             this.Load += new System.EventHandler(this.frmShipper_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvShipper)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipperBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epShipper)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,5 +269,6 @@
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider epShipper;
     }
 }
