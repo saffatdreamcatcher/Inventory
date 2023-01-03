@@ -36,12 +36,12 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public Customer GetById(int id)
+        public Shipper GetById(int id)
         {
             try
             {
-                var customerDLL = new CustomerDLL();
-                return customerDLL.GetById(id);
+                var shipperDLL = new ShipperDLL();
+                return shipperDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -49,12 +49,12 @@ namespace Inventory.BLL.BusinessLogic
             }
         }
 
-        public int GetCount(Shipper shipper)
+        public int GetCount(string whereClause = "")
         {
             try
             {
                 var shipperDLL = new ShipperDLL();
-                return shipperDLL.GetCount();
+                return shipperDLL.GetCount(whereClause);
             }
             catch (Exception ex)
             {

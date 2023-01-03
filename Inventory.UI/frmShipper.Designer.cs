@@ -38,21 +38,25 @@
             this.txtsearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.gvShipper = new System.Windows.Forms.DataGridView();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.epShipper = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.shipperBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.epShipper = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnClose = new System.Windows.Forms.Button();
             this.lblShipper = new System.Windows.Forms.Label();
+            this.txtPhoneS = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.gvShipper)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epShipper)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipperBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epShipper)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCompanyName
@@ -109,14 +113,14 @@
             // 
             // txtsearch
             // 
-            this.txtsearch.Location = new System.Drawing.Point(233, 231);
+            this.txtsearch.Location = new System.Drawing.Point(87, 32);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(100, 22);
             this.txtsearch.TabIndex = 6;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(351, 231);
+            this.btnSearch.Location = new System.Drawing.Point(388, 29);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 7;
@@ -146,38 +150,7 @@
             this.gvShipper.RowTemplate.Height = 24;
             this.gvShipper.Size = new System.Drawing.Size(742, 187);
             this.gvShipper.TabIndex = 8;
-            this.gvShipper.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvShipper_CellContentClick);
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 125;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 125;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 237);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 16);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Search By Company";
-            // 
-            // epShipper
-            // 
-            this.epShipper.ContainerControl = this;
+            this.gvShipper.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvShipper_CellClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -224,9 +197,40 @@
             this.isNewDataGridViewCheckBoxColumn.Visible = false;
             this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 125;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 125;
+            // 
             // shipperBindingSource
             // 
             this.shipperBindingSource.DataSource = typeof(Inventory.DLL.Entities.Shipper);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Company";
+            // 
+            // epShipper
+            // 
+            this.epShipper.ContainerControl = this;
             // 
             // btnClose
             // 
@@ -250,6 +254,36 @@
             this.lblShipper.TabIndex = 47;
             this.lblShipper.Text = "Shipper";
             // 
+            // txtPhoneS
+            // 
+            this.txtPhoneS.Location = new System.Drawing.Point(258, 30);
+            this.txtPhoneS.Name = "txtPhoneS";
+            this.txtPhoneS.Size = new System.Drawing.Size(100, 22);
+            this.txtPhoneS.TabIndex = 48;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(206, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 16);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Phone";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtsearch);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.txtPhoneS);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(95, 202);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(473, 69);
+            this.groupBox1.TabIndex = 50;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Search By";
+            // 
             // frmShipper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -257,12 +291,10 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(901, 487);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblShipper);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.gvShipper);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtsearch);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPhone);
@@ -272,11 +304,12 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmShipper";
-            this.Text = "frmShipper";
             this.Load += new System.EventHandler(this.frmShipper_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvShipper)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epShipper)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipperBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epShipper)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,5 +338,8 @@
         private System.Windows.Forms.ErrorProvider epShipper;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblShipper;
+        private System.Windows.Forms.TextBox txtPhoneS;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

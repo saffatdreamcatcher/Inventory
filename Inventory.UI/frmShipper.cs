@@ -39,6 +39,7 @@ namespace Inventory.UI
         {
             txtCompanyName.Text = string.Empty;
             txtPhone.Text = string.Empty;
+            
         }
 
 
@@ -91,14 +92,26 @@ namespace Inventory.UI
         }
 
 
-        private void gvShipper_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ManageEdit(e);
-        }
+        
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string cn = "CompanyName LIKE '%" + txtsearch.Text + "%'";
+            //string cn = "CompanyName LIKE '%" + txtsearch.Text + "%'";
+           
+            string cn = "";
+            if (txtsearch.Text != "")
+            {
+              cn += "CompanyName LIKE '%" + txtsearch.Text + "%'";
+
+            }
+
+            if (txtPhoneS.Text != "")
+            {
+                if (cn != string.Empty)
+                    cn = cn + " AND ";
+                cn += "Phone LIKE '%" + txtPhoneS.Text + "%'";
+
+            }
             ShipperBLL shu = new ShipperBLL();
             List<Shipper> shippers = shu.GetAll(cn);
             gvShipper.DataSource = shippers;
@@ -128,6 +141,11 @@ namespace Inventory.UI
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gvShipper_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ManageEdit(e);
         }
     }
 }
