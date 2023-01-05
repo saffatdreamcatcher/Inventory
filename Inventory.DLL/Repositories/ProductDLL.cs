@@ -62,8 +62,8 @@ namespace Inventory.DLL.Repositories
             DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
             var product = new Product(id, createTime);
             product.Name = reader["Name"] is DBNull ? null : reader["Name"].ToString();
-            product.SupplierId = reader["SupplierId"] is DBNull ? null : reader["SupplierId"].ToString();
-            product.CategoryId = reader["CategoryId"] is DBNull ? null : reader["CategoryId"].ToString();
+            product.SupplierId = reader["SupplierId"] is DBNull ? 0 : Convert.ToInt32(reader["SupplierId"]);
+            product.CategoryId = reader["CategoryId"] is DBNull ? 0 : Convert.ToInt32(reader["CategoryId"]);
             product.Quantity = reader["Quantity"] is DBNull ? null : reader["Quantity"].ToString();
             product.UnitPrice = reader["UnitPrice"] is DBNull ? 0 :Convert.ToDouble(reader["UnitPrice"]);
             product.UnitInStock = reader["UnitInStock"] is DBNull ? 0 : Convert.ToInt32 (reader["UnitInStock"]);
@@ -107,8 +107,8 @@ namespace Inventory.DLL.Repositories
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
                         product = new Product(id, createTime);
                         product.Name = reader["Name"] is DBNull ? null : reader["Name"].ToString();
-                        product.SupplierId = reader["SupplierId"] is DBNull ? null : reader["SupplierId"].ToString();
-                        product.CategoryId = reader["CategoryId"] is DBNull ? null : reader["CategoryId"].ToString();
+                        product.SupplierId = reader["SupplierId"] is DBNull ? 0 : Convert.ToInt32(reader["SupplierId"]);
+                        product.CategoryId = reader["CategoryId"] is DBNull ? 0 : Convert.ToInt32(reader["CategoryId"]);
                         product.Quantity = reader["Quantity"] is DBNull ? null : reader["Quantity"].ToString();
                         //product.UnitPrice = reader["UnitPrice"] is DBNull ? null : reader["UnitPrice"].ToString();
                         //product.UnitInStock = reader["UnitInStock"] is DBNull ? null : reader["UnitInStock"].ToString();
@@ -181,7 +181,7 @@ namespace Inventory.DLL.Repositories
         if (product.IsNew)
         {
           comm.CommandText = "INSERT INTO Product(CreateTime, Name, SupplierId, CategoryId, Quantity, UnitPrice, UnitInStock, UnitsOnOrder, ReorderLevel, Discontinued )" +
-                        " VALUES(@CreateTime, @Name, @SupplierId, @CategoryId, @Quantity, @UnitPrice, @UnitInStock, @UnitsOnOrder, @ReorderLevel, @Discontinued); SELECT SCOPE_IDENTITY()";
+                        " VALUES (@CreateTime, @Name, @SupplierId, @CategoryId, @Quantity, @UnitPrice, @UnitInStock, @UnitsOnOrder, @ReorderLevel, @Discontinued); SELECT SCOPE_IDENTITY()";
           comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
         }
         else

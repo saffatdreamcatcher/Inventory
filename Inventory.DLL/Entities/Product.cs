@@ -17,11 +17,11 @@ namespace Inventory.DLL.Entities
     private string name;
     public string Name { get => name; set => name = value; }
 
-    private string supplierid;
-    public string SupplierId { get => supplierid; set => supplierid = value; }
+    private int supplierid;
+    public int SupplierId { get => supplierid; set => supplierid = value; }
 
-    private string categoryid;
-    public string CategoryId { get => categoryid; set => categoryid = value; }
+    private int categoryid;
+    public int CategoryId { get => categoryid; set => categoryid = value; }
 
     private string quantity;
     public string Quantity { get => quantity; set => quantity = value; }
