@@ -62,6 +62,14 @@ namespace Inventory.DLL.Repositories
             DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
             var product = new Product(id, createTime);
             product.Name = reader["Name"] is DBNull ? null : reader["Name"].ToString();
+            product.SupplierId = reader["SupplierId"] is DBNull ? null : reader["SupplierId"].ToString();
+            product.CategoryId = reader["CategoryId"] is DBNull ? null : reader["CategoryId"].ToString();
+            product.Quantity = reader["Quantity"] is DBNull ? null : reader["Quantity"].ToString();
+            product.UnitPrice = reader["UnitPrice"] is DBNull ? 0 :Convert.ToDouble(reader["UnitPrice"]);
+            product.UnitInStock = reader["UnitInStock"] is DBNull ? 0 : Convert.ToInt32 (reader["UnitInStock"]);
+            product.UnitsOnOrder = reader["UnitsOnOrder"] is DBNull ? 0 :Convert.ToInt32(reader["UnitsOnOrder"]);
+            product.ReorderLevel = reader["ReorderLevel"] is DBNull ? 0 :Convert.ToInt32(reader["ReorderLevel"]);
+            product.Discontinued = reader["Discontinued"] is DBNull ? false :Convert.ToBoolean (reader["Discontinued"]);
             products.Add(product);
           }
         }
@@ -97,9 +105,17 @@ namespace Inventory.DLL.Repositories
                     {
                         id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                         product = new Product(id, createTime);
+                        product = new Product(id, createTime);
                         product.Name = reader["Name"] is DBNull ? null : reader["Name"].ToString();
-                        
+                        product.SupplierId = reader["SupplierId"] is DBNull ? null : reader["SupplierId"].ToString();
+                        product.CategoryId = reader["CategoryId"] is DBNull ? null : reader["CategoryId"].ToString();
+                        product.Quantity = reader["Quantity"] is DBNull ? null : reader["Quantity"].ToString();
+                        //product.UnitPrice = reader["UnitPrice"] is DBNull ? null : reader["UnitPrice"].ToString();
+                        //product.UnitInStock = reader["UnitInStock"] is DBNull ? null : reader["UnitInStock"].ToString();
+                        //product.UnitsOnOrder = reader["UnitsOnOrder"] is DBNull ? null : reader["UnitsOnOrder"].ToString();
+                        //product.ReorderLevel = reader["ReorderLevel"] is DBNull ? null : reader["ReorderLevel"].ToString();
+                        //product.Discontinued = reader["Discontinued"] is DBNull ? null : reader["Discontinued"].ToString();
+
                     }
                 }
 
@@ -164,7 +180,8 @@ namespace Inventory.DLL.Repositories
 
         if (product.IsNew)
         {
-          comm.CommandText = "INSERT INTO Product(CreateTime,Name) VALUES(@CreateTime, @Name); SELECT SCOPE_IDENTITY()";
+          comm.CommandText = "INSERT INTO Product(CreateTime, Name, SupplierId, CategoryId, Quantity, UnitPrice, UnitInStock, UnitsOnOrder, ReorderLevel, Discontinued )" +
+                        " VALUES(@CreateTime, @Name, @SupplierId, @CategoryId, @Quantity, @UnitPrice, @UnitInStock, @UnitsOnOrder, @ReorderLevel, @Discontinued); SELECT SCOPE_IDENTITY()";
           comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
         }
         else
@@ -173,7 +190,16 @@ namespace Inventory.DLL.Repositories
           comm.Parameters.Add("@Id", SqlDbType.Int).Value = product.Id;
         }
         comm.Parameters.Add("@Name", SqlDbType.VarChar).Value = product.Name;
-        if (product.IsNew)
+        comm.Parameters.Add("@SupplierId", SqlDbType.Int).Value = product.SupplierId;
+        comm.Parameters.Add("@CategoryId", SqlDbType.Int).Value = product.CategoryId;
+        comm.Parameters.Add("@Quantity", SqlDbType.VarChar).Value = product.Quantity;
+        comm.Parameters.Add("@UnitPrice", SqlDbType.Money).Value = product.UnitPrice;
+        comm.Parameters.Add("@UnitInStock", SqlDbType.Int).Value = product.UnitInStock;
+        comm.Parameters.Add("@UnitsOnOrder", SqlDbType.Int).Value = product.UnitsOnOrder;
+        comm.Parameters.Add("@ReorderLevel", SqlDbType.Int).Value = product.ReorderLevel;
+        comm.Parameters.Add("@Discontinued", SqlDbType.Bit).Value = product.Discontinued;
+
+                if (product.IsNew)
         {
           primaryKey = Convert.ToInt32(comm.ExecuteScalar());
           product.Id = primaryKey;

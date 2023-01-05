@@ -47,6 +47,7 @@ namespace MyApp
     private void SaveProduct()
     {
       Product product = new Product() { Id = id, Name = txtName.Text };
+      
       var productBLL = new ProductBLL();
       productBLL.Save(product);
       LoadProduct();

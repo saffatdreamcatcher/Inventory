@@ -146,6 +146,11 @@ namespace Inventory.UI
         {
             this.Close();
         }
+
+        private void txtTerritory_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     }

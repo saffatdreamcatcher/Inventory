@@ -166,7 +166,8 @@ namespace Inventory.DLL.Repositories
 
                 if (region.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Region(CreateTime, Description ) VALUES(@CreateTime,  @Description); SELECT SCOPE_IDENTITY()";
+                    comm.CommandText = "INSERT INTO Region(CreateTime, Description ) " +
+                                       "VALUES(@CreateTime,  @Description ); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
@@ -177,6 +178,7 @@ namespace Inventory.DLL.Repositories
                 
                 comm.Parameters.Add("@Description", SqlDbType.VarChar).Value = region.Description;
                 
+
                 if (region.IsNew)
                 {
                     primaryKey = Convert.ToInt32(comm.ExecuteScalar());

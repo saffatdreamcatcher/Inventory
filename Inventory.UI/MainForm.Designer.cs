@@ -43,13 +43,13 @@
             this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.territoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shipperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pForm = new System.Windows.Forms.Panel();
-            this.shipperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,10 +122,10 @@
             // setUpToolStripMenuItem
             // 
             this.setUpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.productToolStripMenuItem,
-            this.customerToolStripMenuItem,
             this.supplierToolStripMenuItem,
             this.categoriesToolStripMenuItem,
+            this.productToolStripMenuItem,
+            this.customerToolStripMenuItem,
             this.regionToolStripMenuItem,
             this.shipperToolStripMenuItem});
             this.setUpToolStripMenuItem.Name = "setUpToolStripMenuItem";
@@ -176,6 +176,13 @@
             this.territoryToolStripMenuItem.Text = "Territory";
             this.territoryToolStripMenuItem.Click += new System.EventHandler(this.territoryToolStripMenuItem_Click);
             // 
+            // shipperToolStripMenuItem
+            // 
+            this.shipperToolStripMenuItem.Name = "shipperToolStripMenuItem";
+            this.shipperToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.shipperToolStripMenuItem.Text = "Shipper";
+            this.shipperToolStripMenuItem.Click += new System.EventHandler(this.shipperToolStripMenuItem_Click);
+            // 
             // transactionToolStripMenuItem
             // 
             this.transactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -218,13 +225,6 @@
             this.pForm.Name = "pForm";
             this.pForm.Size = new System.Drawing.Size(800, 410);
             this.pForm.TabIndex = 1;
-            // 
-            // shipperToolStripMenuItem
-            // 
-            this.shipperToolStripMenuItem.Name = "shipperToolStripMenuItem";
-            this.shipperToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.shipperToolStripMenuItem.Text = "Shipper";
-            this.shipperToolStripMenuItem.Click += new System.EventHandler(this.shipperToolStripMenuItem_Click);
             // 
             // MainForm
             // 

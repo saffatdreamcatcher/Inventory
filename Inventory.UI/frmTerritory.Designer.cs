@@ -36,10 +36,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gvTerritory = new System.Windows.Forms.DataGridView();
-            this.territoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.epTerritory = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnClose = new System.Windows.Forms.Button();
-            this.lblTerritory = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +44,10 @@
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.territoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.epTerritory = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblTerritory = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvTerritory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.territoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epTerritory)).BeginInit();
@@ -76,6 +76,7 @@
             this.txtTerritory.Name = "txtTerritory";
             this.txtTerritory.Size = new System.Drawing.Size(185, 22);
             this.txtTerritory.TabIndex = 2;
+            this.txtTerritory.TextChanged += new System.EventHandler(this.txtTerritory_TextChanged);
             // 
             // lbTerritoryDes
             // 
@@ -131,36 +132,6 @@
             this.gvTerritory.TabIndex = 6;
             this.gvTerritory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvTerritory_CellClick);
             this.gvTerritory.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gvTerritory_DataBindingComplete);
-            // 
-            // territoryBindingSource
-            // 
-            this.territoryBindingSource.DataSource = typeof(Inventory.DLL.Entities.Territory);
-            // 
-            // epTerritory
-            // 
-            this.epTerritory.ContainerControl = this;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1190, -3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(31, 23);
-            this.btnClose.TabIndex = 46;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // lblTerritory
-            // 
-            this.lblTerritory.AutoSize = true;
-            this.lblTerritory.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTerritory.ForeColor = System.Drawing.Color.Green;
-            this.lblTerritory.Location = new System.Drawing.Point(21, 14);
-            this.lblTerritory.Name = "lblTerritory";
-            this.lblTerritory.Size = new System.Drawing.Size(81, 22);
-            this.lblTerritory.TabIndex = 47;
-            this.lblTerritory.Text = "Territory";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -233,6 +204,36 @@
             this.Delete.ToolTipText = "Delete";
             this.Delete.UseColumnTextForLinkValue = true;
             this.Delete.Width = 125;
+            // 
+            // territoryBindingSource
+            // 
+            this.territoryBindingSource.DataSource = typeof(Inventory.DLL.Entities.Territory);
+            // 
+            // epTerritory
+            // 
+            this.epTerritory.ContainerControl = this;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1190, -3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(31, 23);
+            this.btnClose.TabIndex = 46;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lblTerritory
+            // 
+            this.lblTerritory.AutoSize = true;
+            this.lblTerritory.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTerritory.ForeColor = System.Drawing.Color.Green;
+            this.lblTerritory.Location = new System.Drawing.Point(21, 14);
+            this.lblTerritory.Name = "lblTerritory";
+            this.lblTerritory.Size = new System.Drawing.Size(81, 22);
+            this.lblTerritory.TabIndex = 47;
+            this.lblTerritory.Text = "Territory";
             // 
             // frmTerritory
             // 
