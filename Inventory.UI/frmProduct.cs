@@ -38,6 +38,16 @@ namespace MyApp
             {
                 id = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[0].Value);
                 txtName.Text = Convert.ToString(gvProduct.Rows[e.RowIndex].Cells[1].Value);
+                cboSupplier.SelectedValue = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[6].Value);
+                cboCategory.SelectedValue = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[7].Value);
+                txtQuantity.Text = Convert.ToString(gvProduct.Rows[e.RowIndex].Cells[8].Value);
+                txtUnitPrice.Text = Convert.ToString(gvProduct.Rows[e.RowIndex].Cells[9].Value);
+                nUpDownUnitinStock.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[10].Value);
+                nUpDownUOD.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[11].Value);
+                nUpDownReorder.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[12].Value);
+                chkDiscontinued.Checked = Convert.ToBoolean(gvProduct.Rows[e.RowIndex].Cells[13].Value);
+
+
             }
             else if (e.ColumnIndex == 5)
             {
@@ -51,11 +61,15 @@ namespace MyApp
             Product product = new Product();
             product.Id = id;
             product.Name = txtName.Text;
-            product.UnitInStock = Convert.ToInt32(nUpDownUnitinStock.Value);
-            product.Discontinued = chkDiscontinued.Checked;
-            //Do the other assignment here
-
+            product.SupplierId = Convert.ToInt32(cboSupplier.SelectedValue);
+            product.CategoryId = Convert.ToInt32(cboCategory.SelectedValue);
             product.Quantity = txtQuantity.Text;
+            product.UnitPrice = Convert.ToDouble(txtUnitPrice.Text);
+            product.UnitInStock = Convert.ToInt32(nUpDownUnitinStock.Value);
+            product.UnitsOnOrder = Convert.ToInt32(nUpDownUOD.Value);
+            product.ReorderLevel = Convert.ToInt32(nUpDownReorder.Value);
+            product.Discontinued = chkDiscontinued.Checked;
+            
             var productBLL = new ProductBLL();
             productBLL.Save(product);
             LoadProduct();
@@ -94,6 +108,18 @@ namespace MyApp
         {
             txtName.Text = string.Empty;
             id = 0;
+            cboSupplier.SelectedValue = string.Empty;
+            cboCategory.SelectedValue = string.Empty;
+            txtQuantity.Text = string.Empty;
+            txtUnitPrice.Text = string.Empty;
+            nUpDownUnitinStock.Value = 0;
+            nUpDownUOD.Value = 0;
+            nUpDownReorder.Value = 0;
+            chkDiscontinued.Checked = false;
+
+
+
+
         }
 
         private void DeleteProduct(int id)
@@ -112,6 +138,9 @@ namespace MyApp
             this.Close();
         }
 
-        
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ClearField();
+        }
     }
 }

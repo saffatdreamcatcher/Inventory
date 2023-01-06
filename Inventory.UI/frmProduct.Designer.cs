@@ -33,10 +33,6 @@ namespace MyApp
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gvProduct = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +43,6 @@ namespace MyApp
             this.UnitsOnOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReorderLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Discontinued = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblProduct = new System.Windows.Forms.Label();
@@ -62,14 +57,22 @@ namespace MyApp
             this.lblUnitInStock = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtReorderLevel = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtUnitsOnOrder = new System.Windows.Forms.TextBox();
             this.chkDiscontinued = new System.Windows.Forms.CheckBox();
             this.nUpDownUnitinStock = new System.Windows.Forms.NumericUpDown();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.nUpDownUOD = new System.Windows.Forms.NumericUpDown();
+            this.nUpDownReorder = new System.Windows.Forms.NumericUpDown();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpDownUnitinStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDownUOD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDownReorder)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -122,43 +125,6 @@ namespace MyApp
             this.gvProduct.Size = new System.Drawing.Size(1075, 207);
             this.gvProduct.TabIndex = 2;
             this.gvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvProduct_CellClick);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsNew";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "IsNew";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Visible = false;
-            this.dataGridViewCheckBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CreateTime";
-            this.dataGridViewTextBoxColumn3.HeaderText = "CreateTime";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // Edit
             // 
@@ -243,10 +209,6 @@ namespace MyApp
             this.Discontinued.MinimumWidth = 6;
             this.Discontinued.Name = "Discontinued";
             this.Discontinued.Width = 125;
-            // 
-            // productBindingSource1
-            // 
-            this.productBindingSource1.DataSource = typeof(Inventory.DLL.Entities.Product);
             // 
             // btnSave
             // 
@@ -383,13 +345,6 @@ namespace MyApp
             this.label4.TabIndex = 19;
             this.label4.Text = "Reorder Level";
             // 
-            // txtReorderLevel
-            // 
-            this.txtReorderLevel.Location = new System.Drawing.Point(915, 99);
-            this.txtReorderLevel.Name = "txtReorderLevel";
-            this.txtReorderLevel.Size = new System.Drawing.Size(192, 22);
-            this.txtReorderLevel.TabIndex = 18;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -399,13 +354,6 @@ namespace MyApp
             this.label5.Size = new System.Drawing.Size(94, 16);
             this.label5.TabIndex = 17;
             this.label5.Text = "Units On Order";
-            // 
-            // txtUnitsOnOrder
-            // 
-            this.txtUnitsOnOrder.Location = new System.Drawing.Point(915, 58);
-            this.txtUnitsOnOrder.Name = "txtUnitsOnOrder";
-            this.txtUnitsOnOrder.Size = new System.Drawing.Size(192, 22);
-            this.txtUnitsOnOrder.TabIndex = 16;
             // 
             // chkDiscontinued
             // 
@@ -423,6 +371,71 @@ namespace MyApp
             this.nUpDownUnitinStock.Size = new System.Drawing.Size(192, 22);
             this.nUpDownUnitinStock.TabIndex = 23;
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsNew";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "IsNew";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Visible = false;
+            this.dataGridViewCheckBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CreateTime";
+            this.dataGridViewTextBoxColumn3.HeaderText = "CreateTime";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // productBindingSource1
+            // 
+            this.productBindingSource1.DataSource = typeof(Inventory.DLL.Entities.Product);
+            // 
+            // nUpDownUOD
+            // 
+            this.nUpDownUOD.Location = new System.Drawing.Point(915, 58);
+            this.nUpDownUOD.Name = "nUpDownUOD";
+            this.nUpDownUOD.Size = new System.Drawing.Size(192, 22);
+            this.nUpDownUOD.TabIndex = 24;
+            // 
+            // nUpDownReorder
+            // 
+            this.nUpDownReorder.Location = new System.Drawing.Point(915, 99);
+            this.nUpDownReorder.Name = "nUpDownReorder";
+            this.nUpDownReorder.Size = new System.Drawing.Size(192, 22);
+            this.nUpDownReorder.TabIndex = 25;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(250, 186);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 26;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -430,13 +443,14 @@ namespace MyApp
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1185, 448);
             this.ControlBox = false;
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.nUpDownReorder);
+            this.Controls.Add(this.nUpDownUOD);
             this.Controls.Add(this.nUpDownUnitinStock);
             this.Controls.Add(this.chkDiscontinued);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtReorderLevel);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtUnitsOnOrder);
             this.Controls.Add(this.lblUnitInStock);
             this.Controls.Add(this.lblUnitPrice);
             this.Controls.Add(this.txtUnitPrice);
@@ -456,8 +470,10 @@ namespace MyApp
             this.Name = "frmProduct";
             this.Load += new System.EventHandler(this.frmProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpDownUnitinStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDownUOD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDownReorder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,9 +503,7 @@ namespace MyApp
         private System.Windows.Forms.Label lblUnitInStock;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtReorderLevel;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtUnitsOnOrder;
         private System.Windows.Forms.CheckBox chkDiscontinued;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -506,5 +520,8 @@ namespace MyApp
         private System.Windows.Forms.DataGridViewTextBoxColumn ReorderLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discontinued;
         private System.Windows.Forms.NumericUpDown nUpDownUnitinStock;
+        private System.Windows.Forms.NumericUpDown nUpDownUOD;
+        private System.Windows.Forms.NumericUpDown nUpDownReorder;
+        private System.Windows.Forms.Button btnReset;
     }
 }
