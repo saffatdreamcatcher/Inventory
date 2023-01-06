@@ -33,26 +33,6 @@ namespace MyApp
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gvProduct = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.lblProduct = new System.Windows.Forms.Label();
-            this.cboSupplierId = new System.Windows.Forms.ComboBox();
-            this.lblSupplier = new System.Windows.Forms.Label();
-            this.cboCategoryId = new System.Windows.Forms.ComboBox();
-            this.lblCategoryId = new System.Windows.Forms.Label();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblUnitPrice = new System.Windows.Forms.Label();
-            this.txtUnitPrice = new System.Windows.Forms.TextBox();
-            this.lblUnitInStock = new System.Windows.Forms.Label();
-            this.txtUnitInStock = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtReorderLevel = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtUnitsOnOrder = new System.Windows.Forms.TextBox();
-            this.chkDiscontinued = new System.Windows.Forms.CheckBox();
-            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -67,8 +47,29 @@ namespace MyApp
             this.UnitsOnOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReorderLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Discontinued = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblProduct = new System.Windows.Forms.Label();
+            this.cboSupplier = new System.Windows.Forms.ComboBox();
+            this.lblSupplier = new System.Windows.Forms.Label();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.lblCategoryId = new System.Windows.Forms.Label();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblUnitPrice = new System.Windows.Forms.Label();
+            this.txtUnitPrice = new System.Windows.Forms.TextBox();
+            this.lblUnitInStock = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtReorderLevel = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtUnitsOnOrder = new System.Windows.Forms.TextBox();
+            this.chkDiscontinued = new System.Windows.Forms.CheckBox();
+            this.nUpDownUnitinStock = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDownUnitinStock)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -121,184 +122,6 @@ namespace MyApp
             this.gvProduct.Size = new System.Drawing.Size(1075, 207);
             this.gvProduct.TabIndex = 2;
             this.gvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvProduct_CellClick);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(127, 187);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(88, 23);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1147, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(39, 23);
-            this.btnClose.TabIndex = 4;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // lblProduct
-            // 
-            this.lblProduct.AutoSize = true;
-            this.lblProduct.Font = new System.Drawing.Font("Microsoft Tai Le", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct.ForeColor = System.Drawing.Color.Green;
-            this.lblProduct.Location = new System.Drawing.Point(20, 16);
-            this.lblProduct.Name = "lblProduct";
-            this.lblProduct.Size = new System.Drawing.Size(77, 23);
-            this.lblProduct.TabIndex = 5;
-            this.lblProduct.Text = "Product";
-            // 
-            // cboSupplierId
-            // 
-            this.cboSupplierId.FormattingEnabled = true;
-            this.cboSupplierId.Location = new System.Drawing.Point(127, 108);
-            this.cboSupplierId.Name = "cboSupplierId";
-            this.cboSupplierId.Size = new System.Drawing.Size(237, 24);
-            this.cboSupplierId.TabIndex = 6;
-            // 
-            // lblSupplier
-            // 
-            this.lblSupplier.AutoSize = true;
-            this.lblSupplier.Location = new System.Drawing.Point(24, 116);
-            this.lblSupplier.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblSupplier.Name = "lblSupplier";
-            this.lblSupplier.Size = new System.Drawing.Size(68, 16);
-            this.lblSupplier.TabIndex = 7;
-            this.lblSupplier.Text = "SupplierId";
-            // 
-            // cboCategoryId
-            // 
-            this.cboCategoryId.FormattingEnabled = true;
-            this.cboCategoryId.Location = new System.Drawing.Point(127, 150);
-            this.cboCategoryId.Name = "cboCategoryId";
-            this.cboCategoryId.Size = new System.Drawing.Size(237, 24);
-            this.cboCategoryId.TabIndex = 8;
-            // 
-            // lblCategoryId
-            // 
-            this.lblCategoryId.AutoSize = true;
-            this.lblCategoryId.Location = new System.Drawing.Point(26, 158);
-            this.lblCategoryId.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblCategoryId.Name = "lblCategoryId";
-            this.lblCategoryId.Size = new System.Drawing.Size(73, 16);
-            this.lblCategoryId.TabIndex = 9;
-            this.lblCategoryId.Text = "CategoryId";
-            // 
-            // txtQuantity
-            // 
-            this.txtQuantity.Location = new System.Drawing.Point(558, 58);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(192, 22);
-            this.txtQuantity.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(467, 64);
-            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 16);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Quantity";
-            // 
-            // lblUnitPrice
-            // 
-            this.lblUnitPrice.AutoSize = true;
-            this.lblUnitPrice.Location = new System.Drawing.Point(467, 105);
-            this.lblUnitPrice.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblUnitPrice.Name = "lblUnitPrice";
-            this.lblUnitPrice.Size = new System.Drawing.Size(64, 16);
-            this.lblUnitPrice.TabIndex = 13;
-            this.lblUnitPrice.Text = "Unit Price";
-            // 
-            // txtUnitPrice
-            // 
-            this.txtUnitPrice.Location = new System.Drawing.Point(558, 99);
-            this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(192, 22);
-            this.txtUnitPrice.TabIndex = 12;
-            // 
-            // lblUnitInStock
-            // 
-            this.lblUnitInStock.AutoSize = true;
-            this.lblUnitInStock.Location = new System.Drawing.Point(467, 146);
-            this.lblUnitInStock.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblUnitInStock.Name = "lblUnitInStock";
-            this.lblUnitInStock.Size = new System.Drawing.Size(80, 16);
-            this.lblUnitInStock.TabIndex = 15;
-            this.lblUnitInStock.Text = "Unit In Stock";
-            // 
-            // txtUnitInStock
-            // 
-            this.txtUnitInStock.Location = new System.Drawing.Point(558, 140);
-            this.txtUnitInStock.Name = "txtUnitInStock";
-            this.txtUnitInStock.Size = new System.Drawing.Size(192, 22);
-            this.txtUnitInStock.TabIndex = 14;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(824, 146);
-            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 16);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Discontinued";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(810, 105);
-            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 16);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Reorder Level";
-            // 
-            // txtReorderLevel
-            // 
-            this.txtReorderLevel.Location = new System.Drawing.Point(915, 99);
-            this.txtReorderLevel.Name = "txtReorderLevel";
-            this.txtReorderLevel.Size = new System.Drawing.Size(192, 22);
-            this.txtReorderLevel.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(810, 64);
-            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 16);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Units On Order";
-            // 
-            // txtUnitsOnOrder
-            // 
-            this.txtUnitsOnOrder.Location = new System.Drawing.Point(915, 58);
-            this.txtUnitsOnOrder.Name = "txtUnitsOnOrder";
-            this.txtUnitsOnOrder.Size = new System.Drawing.Size(192, 22);
-            this.txtUnitsOnOrder.TabIndex = 16;
-            // 
-            // chkDiscontinued
-            // 
-            this.chkDiscontinued.AutoSize = true;
-            this.chkDiscontinued.Location = new System.Drawing.Point(941, 146);
-            this.chkDiscontinued.Name = "chkDiscontinued";
-            this.chkDiscontinued.Size = new System.Drawing.Size(95, 20);
-            this.chkDiscontinued.TabIndex = 22;
-            this.chkDiscontinued.Text = "checkBox1";
-            this.chkDiscontinued.UseVisualStyleBackColor = true;
-            // 
-            // productBindingSource1
-            // 
-            this.productBindingSource1.DataSource = typeof(Inventory.DLL.Entities.Product);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -421,6 +244,185 @@ namespace MyApp
             this.Discontinued.Name = "Discontinued";
             this.Discontinued.Width = 125;
             // 
+            // productBindingSource1
+            // 
+            this.productBindingSource1.DataSource = typeof(Inventory.DLL.Entities.Product);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(127, 187);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(88, 23);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1147, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(39, 23);
+            this.btnClose.TabIndex = 4;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lblProduct
+            // 
+            this.lblProduct.AutoSize = true;
+            this.lblProduct.Font = new System.Drawing.Font("Microsoft Tai Le", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProduct.ForeColor = System.Drawing.Color.Green;
+            this.lblProduct.Location = new System.Drawing.Point(20, 16);
+            this.lblProduct.Name = "lblProduct";
+            this.lblProduct.Size = new System.Drawing.Size(77, 23);
+            this.lblProduct.TabIndex = 5;
+            this.lblProduct.Text = "Product";
+            // 
+            // cboSupplier
+            // 
+            this.cboSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSupplier.FormattingEnabled = true;
+            this.cboSupplier.Location = new System.Drawing.Point(127, 108);
+            this.cboSupplier.Name = "cboSupplier";
+            this.cboSupplier.Size = new System.Drawing.Size(237, 24);
+            this.cboSupplier.TabIndex = 6;
+            // 
+            // lblSupplier
+            // 
+            this.lblSupplier.AutoSize = true;
+            this.lblSupplier.Location = new System.Drawing.Point(24, 116);
+            this.lblSupplier.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblSupplier.Name = "lblSupplier";
+            this.lblSupplier.Size = new System.Drawing.Size(68, 16);
+            this.lblSupplier.TabIndex = 7;
+            this.lblSupplier.Text = "SupplierId";
+            // 
+            // cboCategory
+            // 
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(127, 150);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(237, 24);
+            this.cboCategory.TabIndex = 8;
+            // 
+            // lblCategoryId
+            // 
+            this.lblCategoryId.AutoSize = true;
+            this.lblCategoryId.Location = new System.Drawing.Point(26, 158);
+            this.lblCategoryId.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblCategoryId.Name = "lblCategoryId";
+            this.lblCategoryId.Size = new System.Drawing.Size(73, 16);
+            this.lblCategoryId.TabIndex = 9;
+            this.lblCategoryId.Text = "CategoryId";
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.Location = new System.Drawing.Point(558, 58);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(192, 22);
+            this.txtQuantity.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(467, 64);
+            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 16);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Quantity";
+            // 
+            // lblUnitPrice
+            // 
+            this.lblUnitPrice.AutoSize = true;
+            this.lblUnitPrice.Location = new System.Drawing.Point(467, 105);
+            this.lblUnitPrice.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblUnitPrice.Name = "lblUnitPrice";
+            this.lblUnitPrice.Size = new System.Drawing.Size(64, 16);
+            this.lblUnitPrice.TabIndex = 13;
+            this.lblUnitPrice.Text = "Unit Price";
+            // 
+            // txtUnitPrice
+            // 
+            this.txtUnitPrice.Location = new System.Drawing.Point(558, 99);
+            this.txtUnitPrice.Name = "txtUnitPrice";
+            this.txtUnitPrice.Size = new System.Drawing.Size(192, 22);
+            this.txtUnitPrice.TabIndex = 12;
+            // 
+            // lblUnitInStock
+            // 
+            this.lblUnitInStock.AutoSize = true;
+            this.lblUnitInStock.Location = new System.Drawing.Point(467, 146);
+            this.lblUnitInStock.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblUnitInStock.Name = "lblUnitInStock";
+            this.lblUnitInStock.Size = new System.Drawing.Size(80, 16);
+            this.lblUnitInStock.TabIndex = 15;
+            this.lblUnitInStock.Text = "Unit In Stock";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(818, 144);
+            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 16);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Discontinued";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(810, 105);
+            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 16);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Reorder Level";
+            // 
+            // txtReorderLevel
+            // 
+            this.txtReorderLevel.Location = new System.Drawing.Point(915, 99);
+            this.txtReorderLevel.Name = "txtReorderLevel";
+            this.txtReorderLevel.Size = new System.Drawing.Size(192, 22);
+            this.txtReorderLevel.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(810, 64);
+            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 16);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Units On Order";
+            // 
+            // txtUnitsOnOrder
+            // 
+            this.txtUnitsOnOrder.Location = new System.Drawing.Point(915, 58);
+            this.txtUnitsOnOrder.Name = "txtUnitsOnOrder";
+            this.txtUnitsOnOrder.Size = new System.Drawing.Size(192, 22);
+            this.txtUnitsOnOrder.TabIndex = 16;
+            // 
+            // chkDiscontinued
+            // 
+            this.chkDiscontinued.AutoSize = true;
+            this.chkDiscontinued.Location = new System.Drawing.Point(915, 145);
+            this.chkDiscontinued.Name = "chkDiscontinued";
+            this.chkDiscontinued.Size = new System.Drawing.Size(18, 17);
+            this.chkDiscontinued.TabIndex = 22;
+            this.chkDiscontinued.UseVisualStyleBackColor = true;
+            // 
+            // nUpDownUnitinStock
+            // 
+            this.nUpDownUnitinStock.Location = new System.Drawing.Point(558, 146);
+            this.nUpDownUnitinStock.Name = "nUpDownUnitinStock";
+            this.nUpDownUnitinStock.Size = new System.Drawing.Size(192, 22);
+            this.nUpDownUnitinStock.TabIndex = 23;
+            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -428,6 +430,7 @@ namespace MyApp
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1185, 448);
             this.ControlBox = false;
+            this.Controls.Add(this.nUpDownUnitinStock);
             this.Controls.Add(this.chkDiscontinued);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -435,15 +438,14 @@ namespace MyApp
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtUnitsOnOrder);
             this.Controls.Add(this.lblUnitInStock);
-            this.Controls.Add(this.txtUnitInStock);
             this.Controls.Add(this.lblUnitPrice);
             this.Controls.Add(this.txtUnitPrice);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.lblCategoryId);
-            this.Controls.Add(this.cboCategoryId);
+            this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.lblSupplier);
-            this.Controls.Add(this.cboSupplierId);
+            this.Controls.Add(this.cboSupplier);
             this.Controls.Add(this.lblProduct);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
@@ -455,6 +457,7 @@ namespace MyApp
             this.Load += new System.EventHandler(this.frmProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDownUnitinStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,16 +476,15 @@ namespace MyApp
     private System.Windows.Forms.BindingSource productBindingSource1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblProduct;
-        private System.Windows.Forms.ComboBox cboSupplierId;
+        private System.Windows.Forms.ComboBox cboSupplier;
         private System.Windows.Forms.Label lblSupplier;
-        private System.Windows.Forms.ComboBox cboCategoryId;
+        private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.Label lblCategoryId;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUnitPrice;
         private System.Windows.Forms.TextBox txtUnitPrice;
         private System.Windows.Forms.Label lblUnitInStock;
-        private System.Windows.Forms.TextBox txtUnitInStock;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtReorderLevel;
@@ -503,5 +505,6 @@ namespace MyApp
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitsOnOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReorderLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discontinued;
+        private System.Windows.Forms.NumericUpDown nUpDownUnitinStock;
     }
 }
