@@ -33,22 +33,6 @@ namespace MyApp
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gvProduct = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitsOnOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReorderLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discontinued = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -70,6 +54,22 @@ namespace MyApp
             this.nUpDownReorder = new System.Windows.Forms.NumericUpDown();
             this.btnReset = new System.Windows.Forms.Button();
             this.nUpUnitPrice = new System.Windows.Forms.NumericUpDown();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitsOnOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReorderLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discontinued = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpDownUnitinStock)).BeginInit();
@@ -109,8 +109,6 @@ namespace MyApp
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewCheckBoxColumn1,
             this.dataGridViewTextBoxColumn3,
-            this.Edit,
-            this.Delete,
             this.SupplierId,
             this.CategoryId,
             this.Quantity,
@@ -120,7 +118,9 @@ namespace MyApp
             this.ReorderLevel,
             this.Discontinued,
             this.SupplierName,
-            this.CategoryName});
+            this.CategoryName,
+            this.Edit,
+            this.Delete});
             this.gvProduct.DataSource = this.productBindingSource1;
             this.gvProduct.Location = new System.Drawing.Point(46, 231);
             this.gvProduct.Margin = new System.Windows.Forms.Padding(1);
@@ -130,143 +130,6 @@ namespace MyApp
             this.gvProduct.Size = new System.Drawing.Size(1113, 207);
             this.gvProduct.TabIndex = 2;
             this.gvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvProduct_CellClick);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsNew";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "IsNew";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Visible = false;
-            this.dataGridViewCheckBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CreateTime";
-            this.dataGridViewTextBoxColumn3.HeaderText = "CreateTime";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // Edit
-            // 
-            this.Edit.DataPropertyName = "Edit";
-            this.Edit.HeaderText = "Edit";
-            this.Edit.LinkColor = System.Drawing.Color.Blue;
-            this.Edit.MinimumWidth = 12;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 125;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 12;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 125;
-            // 
-            // SupplierId
-            // 
-            this.SupplierId.DataPropertyName = "SupplierId";
-            this.SupplierId.HeaderText = "SupplierId";
-            this.SupplierId.MinimumWidth = 6;
-            this.SupplierId.Name = "SupplierId";
-            this.SupplierId.Width = 125;
-            // 
-            // CategoryId
-            // 
-            this.CategoryId.DataPropertyName = "CategoryId";
-            this.CategoryId.HeaderText = "CategoryId";
-            this.CategoryId.MinimumWidth = 6;
-            this.CategoryId.Name = "CategoryId";
-            this.CategoryId.Width = 125;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Width = 125;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.DataPropertyName = "UnitPrice";
-            this.UnitPrice.HeaderText = "UnitPrice";
-            this.UnitPrice.MinimumWidth = 6;
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.Width = 125;
-            // 
-            // UnitInStock
-            // 
-            this.UnitInStock.DataPropertyName = "UnitInStock";
-            this.UnitInStock.HeaderText = "UnitInStock";
-            this.UnitInStock.MinimumWidth = 6;
-            this.UnitInStock.Name = "UnitInStock";
-            this.UnitInStock.Width = 125;
-            // 
-            // UnitsOnOrder
-            // 
-            this.UnitsOnOrder.DataPropertyName = "UnitsOnOrder";
-            this.UnitsOnOrder.HeaderText = "UnitsOnOrder";
-            this.UnitsOnOrder.MinimumWidth = 6;
-            this.UnitsOnOrder.Name = "UnitsOnOrder";
-            this.UnitsOnOrder.Width = 125;
-            // 
-            // ReorderLevel
-            // 
-            this.ReorderLevel.DataPropertyName = "ReorderLevel";
-            this.ReorderLevel.HeaderText = "ReorderLevel";
-            this.ReorderLevel.MinimumWidth = 6;
-            this.ReorderLevel.Name = "ReorderLevel";
-            this.ReorderLevel.Width = 125;
-            // 
-            // Discontinued
-            // 
-            this.Discontinued.DataPropertyName = "Discontinued";
-            this.Discontinued.HeaderText = "Discontinued";
-            this.Discontinued.MinimumWidth = 6;
-            this.Discontinued.Name = "Discontinued";
-            this.Discontinued.Width = 125;
-            // 
-            // SupplierName
-            // 
-            this.SupplierName.DataPropertyName = "SupplierName";
-            this.SupplierName.HeaderText = "SupplierName";
-            this.SupplierName.MinimumWidth = 6;
-            this.SupplierName.Name = "SupplierName";
-            this.SupplierName.Width = 125;
-            // 
-            // CategoryName
-            // 
-            this.CategoryName.DataPropertyName = "CategoryName";
-            this.CategoryName.HeaderText = "CategoryName";
-            this.CategoryName.MinimumWidth = 6;
-            this.CategoryName.Name = "CategoryName";
-            this.CategoryName.Width = 125;
             // 
             // productBindingSource1
             // 
@@ -458,6 +321,145 @@ namespace MyApp
             this.nUpUnitPrice.Size = new System.Drawing.Size(192, 22);
             this.nUpUnitPrice.TabIndex = 27;
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsNew";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "IsNew";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Visible = false;
+            this.dataGridViewCheckBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CreateTime";
+            this.dataGridViewTextBoxColumn3.HeaderText = "CreateTime";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // SupplierId
+            // 
+            this.SupplierId.DataPropertyName = "SupplierId";
+            this.SupplierId.HeaderText = "SupplierId";
+            this.SupplierId.MinimumWidth = 6;
+            this.SupplierId.Name = "SupplierId";
+            this.SupplierId.Visible = false;
+            this.SupplierId.Width = 125;
+            // 
+            // CategoryId
+            // 
+            this.CategoryId.DataPropertyName = "CategoryId";
+            this.CategoryId.HeaderText = "CategoryId";
+            this.CategoryId.MinimumWidth = 6;
+            this.CategoryId.Name = "CategoryId";
+            this.CategoryId.Visible = false;
+            this.CategoryId.Width = 125;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 125;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.DataPropertyName = "UnitPrice";
+            this.UnitPrice.HeaderText = "UnitPrice";
+            this.UnitPrice.MinimumWidth = 6;
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.Width = 125;
+            // 
+            // UnitInStock
+            // 
+            this.UnitInStock.DataPropertyName = "UnitInStock";
+            this.UnitInStock.HeaderText = "UnitInStock";
+            this.UnitInStock.MinimumWidth = 6;
+            this.UnitInStock.Name = "UnitInStock";
+            this.UnitInStock.Width = 125;
+            // 
+            // UnitsOnOrder
+            // 
+            this.UnitsOnOrder.DataPropertyName = "UnitsOnOrder";
+            this.UnitsOnOrder.HeaderText = "UnitsOnOrder";
+            this.UnitsOnOrder.MinimumWidth = 6;
+            this.UnitsOnOrder.Name = "UnitsOnOrder";
+            this.UnitsOnOrder.Width = 125;
+            // 
+            // ReorderLevel
+            // 
+            this.ReorderLevel.DataPropertyName = "ReorderLevel";
+            this.ReorderLevel.HeaderText = "ReorderLevel";
+            this.ReorderLevel.MinimumWidth = 6;
+            this.ReorderLevel.Name = "ReorderLevel";
+            this.ReorderLevel.Width = 125;
+            // 
+            // Discontinued
+            // 
+            this.Discontinued.DataPropertyName = "Discontinued";
+            this.Discontinued.HeaderText = "Discontinued";
+            this.Discontinued.MinimumWidth = 6;
+            this.Discontinued.Name = "Discontinued";
+            this.Discontinued.Width = 125;
+            // 
+            // SupplierName
+            // 
+            this.SupplierName.DataPropertyName = "SupplierName";
+            this.SupplierName.HeaderText = "SupplierName";
+            this.SupplierName.MinimumWidth = 6;
+            this.SupplierName.Name = "SupplierName";
+            this.SupplierName.Width = 125;
+            // 
+            // CategoryName
+            // 
+            this.CategoryName.DataPropertyName = "CategoryName";
+            this.CategoryName.HeaderText = "CategoryName";
+            this.CategoryName.MinimumWidth = 6;
+            this.CategoryName.Name = "CategoryName";
+            this.CategoryName.Width = 125;
+            // 
+            // Edit
+            // 
+            this.Edit.DataPropertyName = "Edit";
+            this.Edit.HeaderText = "Edit";
+            this.Edit.LinkColor = System.Drawing.Color.Blue;
+            this.Edit.MinimumWidth = 12;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 125;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 12;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 125;
+            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -531,12 +533,11 @@ namespace MyApp
         private System.Windows.Forms.NumericUpDown nUpDownUOD;
         private System.Windows.Forms.NumericUpDown nUpDownReorder;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.NumericUpDown nUpUnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewLinkColumn Edit;
-        private System.Windows.Forms.DataGridViewLinkColumn Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn SupplierId;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
@@ -547,6 +548,7 @@ namespace MyApp
         private System.Windows.Forms.DataGridViewTextBoxColumn Discontinued;
         private System.Windows.Forms.DataGridViewTextBoxColumn SupplierName;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
-        private System.Windows.Forms.NumericUpDown nUpUnitPrice;
+        private System.Windows.Forms.DataGridViewLinkColumn Edit;
+        private System.Windows.Forms.DataGridViewLinkColumn Delete;
     }
 }

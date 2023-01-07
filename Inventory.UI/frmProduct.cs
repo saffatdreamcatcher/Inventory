@@ -34,22 +34,22 @@ namespace MyApp
 
         private void ManageEdit(DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 14)
             {
                 id = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[0].Value);
                 txtName.Text = Convert.ToString(gvProduct.Rows[e.RowIndex].Cells[1].Value);
-                cboSupplier.SelectedValue = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[6].Value);
-                cboCategory.SelectedValue = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[7].Value);
-                txtQuantity.Text = Convert.ToString(gvProduct.Rows[e.RowIndex].Cells[8].Value);
-                nUpUnitPrice.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[9].Value);
-                nUpDownUnitinStock.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[10].Value);
-                nUpDownUOD.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[11].Value);
-                nUpDownReorder.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[12].Value);
-                chkDiscontinued.Checked = Convert.ToBoolean(gvProduct.Rows[e.RowIndex].Cells[13].Value);
+                cboSupplier.SelectedValue = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[4].Value);
+                cboCategory.SelectedValue = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[5].Value);
+                txtQuantity.Text = Convert.ToString(gvProduct.Rows[e.RowIndex].Cells[6].Value);
+                nUpUnitPrice.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[7].Value);
+                nUpDownUnitinStock.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[8].Value);
+                nUpDownUOD.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[9].Value);
+                nUpDownReorder.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[10].Value);
+                chkDiscontinued.Checked = Convert.ToBoolean(gvProduct.Rows[e.RowIndex].Cells[11].Value);
 
 
             }
-            else if (e.ColumnIndex == 5)
+            else if (e.ColumnIndex == 15)
             {
                 var id = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[0].Value);
                 DeleteProduct(id);
