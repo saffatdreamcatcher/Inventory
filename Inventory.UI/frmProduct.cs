@@ -41,7 +41,7 @@ namespace MyApp
                 cboSupplier.SelectedValue = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[6].Value);
                 cboCategory.SelectedValue = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[7].Value);
                 txtQuantity.Text = Convert.ToString(gvProduct.Rows[e.RowIndex].Cells[8].Value);
-                txtUnitPrice.Text = Convert.ToString(gvProduct.Rows[e.RowIndex].Cells[9].Value);
+                nUpUnitPrice.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[9].Value);
                 nUpDownUnitinStock.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[10].Value);
                 nUpDownUOD.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[11].Value);
                 nUpDownReorder.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[12].Value);
@@ -64,7 +64,7 @@ namespace MyApp
             product.SupplierId = Convert.ToInt32(cboSupplier.SelectedValue);
             product.CategoryId = Convert.ToInt32(cboCategory.SelectedValue);
             product.Quantity = txtQuantity.Text;
-            product.UnitPrice = Convert.ToDouble(txtUnitPrice.Text);
+            product.UnitPrice = Convert.ToDouble(nUpUnitPrice.Value);
             product.UnitInStock = Convert.ToInt32(nUpDownUnitinStock.Value);
             product.UnitsOnOrder = Convert.ToInt32(nUpDownUOD.Value);
             product.ReorderLevel = Convert.ToInt32(nUpDownReorder.Value);
@@ -111,7 +111,7 @@ namespace MyApp
             cboSupplier.SelectedValue = string.Empty;
             cboCategory.SelectedValue = string.Empty;
             txtQuantity.Text = string.Empty;
-            txtUnitPrice.Text = string.Empty;
+            nUpUnitPrice.Value = 0;
             nUpDownUnitinStock.Value = 0;
             nUpDownUOD.Value = 0;
             nUpDownReorder.Value = 0;
