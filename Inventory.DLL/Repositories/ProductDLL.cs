@@ -53,7 +53,9 @@ namespace Inventory.DLL.Repositories
         conn.Open();
 
         SqlCommand comm = conn.CreateCommand();
-        comm.CommandText = "Select * from Product" + whereClause;
+        comm.CommandText = "SELECT P.*, S.Name AS SupplierName, C.Name AS CategoryName from Product P " +
+                           "left join Supplier S ON P.SupplierId = S.Id " +
+                           "left join Categories C ON P.CategoryId = C.Id " + whereClause;
         using (SqlDataReader reader = comm.ExecuteReader())
         {
           while (reader != null && reader.Read())
@@ -70,6 +72,8 @@ namespace Inventory.DLL.Repositories
             product.UnitsOnOrder = reader["UnitsOnOrder"] is DBNull ? 0 :Convert.ToInt32(reader["UnitsOnOrder"]);
             product.ReorderLevel = reader["ReorderLevel"] is DBNull ? 0 :Convert.ToInt32(reader["ReorderLevel"]);
             product.Discontinued = reader["Discontinued"] is DBNull ? false :Convert.ToBoolean (reader["Discontinued"]);
+            product.SupplierName = reader["SupplierName"] is DBNull ? string.Empty : Convert.ToString(reader["SupplierName"]);
+            product.CategoryName = reader["categoryName"] is DBNull ? string.Empty : Convert.ToString(reader["CategoryName"]);
             products.Add(product);
           }
         }
@@ -98,7 +102,9 @@ namespace Inventory.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from Product where id = " + id;
+                comm.CommandText = "SELECT P.*, S.Name AS SupplierName, C.Name AS CategoryName from Product P " +
+                           "left join Supplier S ON P.SupplierId = S.Id " +
+                           "left join Categories C ON P.CategoryId = C.Id Where P.Id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -110,11 +116,13 @@ namespace Inventory.DLL.Repositories
                         product.SupplierId = reader["SupplierId"] is DBNull ? 0 : Convert.ToInt32(reader["SupplierId"]);
                         product.CategoryId = reader["CategoryId"] is DBNull ? 0 : Convert.ToInt32(reader["CategoryId"]);
                         product.Quantity = reader["Quantity"] is DBNull ? null : reader["Quantity"].ToString();
-                        //product.UnitPrice = reader["UnitPrice"] is DBNull ? null : reader["UnitPrice"].ToString();
-                        //product.UnitInStock = reader["UnitInStock"] is DBNull ? null : reader["UnitInStock"].ToString();
-                        //product.UnitsOnOrder = reader["UnitsOnOrder"] is DBNull ? null : reader["UnitsOnOrder"].ToString();
-                        //product.ReorderLevel = reader["ReorderLevel"] is DBNull ? null : reader["ReorderLevel"].ToString();
-                        //product.Discontinued = reader["Discontinued"] is DBNull ? null : reader["Discontinued"].ToString();
+                        product.UnitPrice = reader["UnitPrice"] is DBNull ? 0 : Convert.ToDouble(reader["UnitPrice"]);
+                        product.UnitInStock = reader["UnitInStock"] is DBNull ? 0 : Convert.ToInt32(reader["UnitInStock"]);
+                        product.UnitsOnOrder = reader["UnitsOnOrder"] is DBNull ? 0 : Convert.ToInt32(reader["UnitsOnOrder"]);
+                        product.ReorderLevel = reader["ReorderLevel"] is DBNull ? 0 : Convert.ToInt32(reader["ReorderLevel"]);
+                        product.Discontinued = reader["Discontinued"] is DBNull ? false : Convert.ToBoolean(reader["Discontinued"]);
+                        product.SupplierName = reader["SupplierName"] is DBNull ? string.Empty : Convert.ToString(reader["SupplierName"]);
+                        product.CategoryName = reader["categoryName"] is DBNull ? string.Empty : Convert.ToString(reader["CategoryName"]);
 
                     }
                 }
@@ -186,7 +194,7 @@ namespace Inventory.DLL.Repositories
         }
         else
         {
-          comm.CommandText = "Update Product SET Name = @Name WHERE Id = @Id";
+          comm.CommandText = "Update Product SET Name = @Name, SupplierId = @SupplierId, CategoryId = @CategoryId, Quantity =@Quantity, UnitPrice = @UnitPrice, UnitInStock = @UnitInStock, UnitsOnOrder =@UnitsOnOrder, ReorderLevel= @ReorderLevel, Discontinued = @Discontinued   WHERE Id = @Id";
           comm.Parameters.Add("@Id", SqlDbType.Int).Value = product.Id;
         }
         comm.Parameters.Add("@Name", SqlDbType.VarChar).Value = product.Name;
@@ -199,7 +207,7 @@ namespace Inventory.DLL.Repositories
         comm.Parameters.Add("@ReorderLevel", SqlDbType.Int).Value = product.ReorderLevel;
         comm.Parameters.Add("@Discontinued", SqlDbType.Bit).Value = product.Discontinued;
 
-                if (product.IsNew)
+        if (product.IsNew)
         {
           primaryKey = Convert.ToInt32(comm.ExecuteScalar());
           product.Id = primaryKey;

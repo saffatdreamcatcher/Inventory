@@ -40,5 +40,16 @@ namespace Inventory.DLL.Entities
 
     private bool discontinued;
     public bool Discontinued { get => discontinued; set => discontinued = value; }
+
+    private string supplierName;
+
+    public string SupplierName { get => supplierName; set => supplierName = value; }
+
+        private string categoryName;
+
+        public string CategoryName { get => categoryName; set => categoryName = value; }
+
+
+
     }
 }
