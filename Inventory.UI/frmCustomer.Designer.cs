@@ -194,7 +194,7 @@
             this.btnSave2.Location = new System.Drawing.Point(86, 162);
             this.btnSave2.Name = "btnSave2";
             this.btnSave2.Size = new System.Drawing.Size(84, 28);
-            this.btnSave2.TabIndex = 1;
+            this.btnSave2.TabIndex = 6;
             this.btnSave2.Text = "Save";
             this.btnSave2.UseVisualStyleBackColor = true;
             this.btnSave2.Click += new System.EventHandler(this.btnSave2_Click_1);
@@ -213,7 +213,7 @@
             this.txtName2.Location = new System.Drawing.Point(86, 71);
             this.txtName2.Name = "txtName2";
             this.txtName2.Size = new System.Drawing.Size(183, 22);
-            this.txtName2.TabIndex = 3;
+            this.txtName2.TabIndex = 0;
             // 
             // label2
             // 
@@ -229,14 +229,14 @@
             this.txtContact.Location = new System.Drawing.Point(86, 109);
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(183, 22);
-            this.txtContact.TabIndex = 5;
+            this.txtContact.TabIndex = 3;
             // 
             // txtCity
             // 
             this.txtCity.Location = new System.Drawing.Point(411, 106);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(183, 22);
-            this.txtCity.TabIndex = 9;
+            this.txtCity.TabIndex = 4;
             // 
             // label3
             // 
@@ -252,7 +252,7 @@
             this.txtAddress.Location = new System.Drawing.Point(411, 71);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(183, 22);
-            this.txtAddress.TabIndex = 7;
+            this.txtAddress.TabIndex = 1;
             // 
             // Address
             // 
@@ -268,7 +268,7 @@
             this.txtCountry.Location = new System.Drawing.Point(755, 106);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(183, 22);
-            this.txtCountry.TabIndex = 13;
+            this.txtCountry.TabIndex = 5;
             // 
             // label4
             // 
@@ -284,7 +284,7 @@
             this.txtPostalCode.Location = new System.Drawing.Point(755, 68);
             this.txtPostalCode.Name = "txtPostalCode";
             this.txtPostalCode.Size = new System.Drawing.Size(183, 22);
-            this.txtPostalCode.TabIndex = 11;
+            this.txtPostalCode.TabIndex = 2;
             // 
             // label5
             // 
@@ -300,7 +300,7 @@
             this.resetbtn.Location = new System.Drawing.Point(194, 162);
             this.resetbtn.Name = "resetbtn";
             this.resetbtn.Size = new System.Drawing.Size(75, 28);
-            this.resetbtn.TabIndex = 14;
+            this.resetbtn.TabIndex = 7;
             this.resetbtn.Text = "Reset";
             this.resetbtn.UseVisualStyleBackColor = true;
             this.resetbtn.Click += new System.EventHandler(this.resetbtn_Click);
@@ -332,7 +332,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1222, 640);
+            this.ClientSize = new System.Drawing.Size(1218, 636);
             this.ControlBox = false;
             this.Controls.Add(this.lblCustomer);
             this.Controls.Add(this.btnClose);

@@ -75,7 +75,7 @@
             this.txtTerritory.Location = new System.Drawing.Point(171, 127);
             this.txtTerritory.Name = "txtTerritory";
             this.txtTerritory.Size = new System.Drawing.Size(185, 22);
-            this.txtTerritory.TabIndex = 2;
+            this.txtTerritory.TabIndex = 1;
             this.txtTerritory.TextChanged += new System.EventHandler(this.txtTerritory_TextChanged);
             // 
             // lbTerritoryDes
@@ -92,7 +92,7 @@
             this.btnSave.Location = new System.Drawing.Point(171, 169);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 4;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -102,7 +102,7 @@
             this.btnReset.Location = new System.Drawing.Point(281, 169);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 5;
+            this.btnReset.TabIndex = 3;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);

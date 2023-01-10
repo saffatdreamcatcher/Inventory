@@ -63,7 +63,7 @@
             this.btnSave.Margin = new System.Windows.Forms.Padding(1);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(88, 23);
-            this.btnSave.TabIndex = 6;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -84,14 +84,14 @@
             this.txtName.Margin = new System.Windows.Forms.Padding(1);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(262, 22);
-            this.txtName.TabIndex = 4;
+            this.txtName.TabIndex = 0;
             // 
             // resetbtn
             // 
             this.resetbtn.Location = new System.Drawing.Point(182, 143);
             this.resetbtn.Name = "resetbtn";
             this.resetbtn.Size = new System.Drawing.Size(72, 23);
-            this.resetbtn.TabIndex = 15;
+            this.resetbtn.TabIndex = 4;
             this.resetbtn.Text = "Reset";
             this.resetbtn.UseVisualStyleBackColor = true;
             this.resetbtn.Click += new System.EventHandler(this.resetbtn_Click);
@@ -102,7 +102,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(243, 22);
-            this.txtDescription.TabIndex = 17;
+            this.txtDescription.TabIndex = 1;
             // 
             // label2
             // 
@@ -232,14 +232,14 @@
             this.txtPhotoFilePath.Location = new System.Drawing.Point(76, 100);
             this.txtPhotoFilePath.Name = "txtPhotoFilePath";
             this.txtPhotoFilePath.Size = new System.Drawing.Size(268, 22);
-            this.txtPhotoFilePath.TabIndex = 21;
+            this.txtPhotoFilePath.TabIndex = 2;
             // 
             // btnBrowse
             // 
             this.btnBrowse.Location = new System.Drawing.Point(269, 143);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 22;
+            this.btnBrowse.TabIndex = 5;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -261,7 +261,6 @@
             // 
             // lblCategories
             // 
-            this.lblCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCategories.AutoSize = true;
             this.lblCategories.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategories.ForeColor = System.Drawing.Color.Green;

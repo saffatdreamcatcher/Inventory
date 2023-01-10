@@ -127,6 +127,7 @@ namespace Inventory.UI
             txtFax.Text = string.Empty;
             txtHomePage.Text = string.Empty;
             supplierId = 0;
+            txtName2.Focus();
         }
 
         private void DeleteSupplier(int id)

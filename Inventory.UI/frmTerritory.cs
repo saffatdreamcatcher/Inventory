@@ -87,6 +87,8 @@ namespace Inventory.UI
             txtTerritory.Text = string.Empty;
             cboRegion.SelectedValue = string.Empty;
             territoryId = 0;
+            cboRegion.Focus();
+
         }
 
 

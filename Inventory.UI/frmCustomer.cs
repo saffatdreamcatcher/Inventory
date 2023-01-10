@@ -83,6 +83,7 @@ namespace Inventory.UI
       txtCountry.Text = string.Empty;
       txtCity.Text = string.Empty;
       customerId = 0;
+      txtName2.Focus();
     }
 
     private void btnSave2_Click_1(object sender, EventArgs e)

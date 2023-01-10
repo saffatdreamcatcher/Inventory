@@ -116,9 +116,7 @@ namespace MyApp
             nUpDownUOD.Value = 0;
             nUpDownReorder.Value = 0;
             chkDiscontinued.Checked = false;
-
-
-
+            txtName.Focus();
 
         }
 

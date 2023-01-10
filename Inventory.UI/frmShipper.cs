@@ -39,6 +39,7 @@ namespace Inventory.UI
         {
             txtCompanyName.Text = string.Empty;
             txtPhone.Text = string.Empty;
+            txtCompanyName.Focus();
             
         }
 
@@ -63,7 +64,14 @@ namespace Inventory.UI
             epShipper.Clear();
             Boolean iv = true;
 
-            if (txtCompanyName.Text == string.Empty)
+            //if (txtCompanyName.Text == string.Empty)
+            //{
+            //    txtCompanyName.Focus();
+            //    epShipper.SetError(txtCompanyName, "Can't empty");
+            //    iv = false;
+            //}
+
+            if (String.IsNullOrEmpty(txtCompanyName.Text))
             {
                 txtCompanyName.Focus();
                 epShipper.SetError(txtCompanyName, "Can't empty");

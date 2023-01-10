@@ -82,21 +82,21 @@
             this.txtCompanyName.Location = new System.Drawing.Point(166, 76);
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(100, 22);
-            this.txtCompanyName.TabIndex = 2;
+            this.txtCompanyName.TabIndex = 0;
             // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(166, 119);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 22);
-            this.txtPhone.TabIndex = 3;
+            this.txtPhone.TabIndex = 1;
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(95, 162);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 4;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -106,7 +106,7 @@
             this.btnReset.Location = new System.Drawing.Point(191, 162);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 5;
+            this.btnReset.TabIndex = 3;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -116,14 +116,14 @@
             this.txtsearch.Location = new System.Drawing.Point(87, 32);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(100, 22);
-            this.txtsearch.TabIndex = 6;
+            this.txtsearch.TabIndex = 4;
             // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(388, 29);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 7;
+            this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -259,7 +259,7 @@
             this.txtPhoneS.Location = new System.Drawing.Point(258, 30);
             this.txtPhoneS.Name = "txtPhoneS";
             this.txtPhoneS.Size = new System.Drawing.Size(100, 22);
-            this.txtPhoneS.TabIndex = 48;
+            this.txtPhoneS.TabIndex = 5;
             // 
             // label2
             // 

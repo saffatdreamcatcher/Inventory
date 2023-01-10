@@ -55,14 +55,14 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(323, 22);
-            this.txtDescription.TabIndex = 19;
+            this.txtDescription.TabIndex = 0;
             // 
             // resetbtn
             // 
             this.resetbtn.Location = new System.Drawing.Point(233, 125);
             this.resetbtn.Name = "resetbtn";
             this.resetbtn.Size = new System.Drawing.Size(67, 23);
-            this.resetbtn.TabIndex = 21;
+            this.resetbtn.TabIndex = 2;
             this.resetbtn.Text = "Reset";
             this.resetbtn.UseVisualStyleBackColor = true;
             this.resetbtn.Click += new System.EventHandler(this.resetbtn_Click);
@@ -73,7 +73,7 @@
             this.btnSave.Margin = new System.Windows.Forms.Padding(1);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(67, 23);
-            this.btnSave.TabIndex = 20;
+            this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);

@@ -42,6 +42,7 @@ namespace Inventory.UI
            
             txtDescription.Text = string.Empty;
             regionId = 0;
+            txtDescription.Focus();
         }
 
 

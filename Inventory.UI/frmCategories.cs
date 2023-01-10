@@ -42,6 +42,7 @@ namespace Inventory.UI
             txtDescription.Text = string.Empty;
             txtPhotoFilePath.Text = string.Empty;
             categoriesId = 0;
+            txtName.Focus();
         }
 
 
