@@ -61,7 +61,15 @@ namespace MyApp
             Product product = new Product();
             product.Id = id;
             product.Name = txtName.Text;
-            product.SupplierId = Convert.ToInt32(cboSupplier.SelectedValue);
+            //if (Convert.ToInt32(cboSupplier.SelectedValue) > -1)
+            //{
+                product.SupplierId = Convert.ToInt32(cboSupplier.SelectedValue);
+            //}
+            //else
+            //{
+            //    product.SupplierId = null;
+            //}
+
             product.CategoryId = Convert.ToInt32(cboCategory.SelectedValue);
             product.Quantity = txtQuantity.Text;
             product.UnitPrice = Convert.ToDouble(nUpUnitPrice.Value);
@@ -82,19 +90,25 @@ namespace MyApp
             ProductBLL productBLL = new ProductBLL();
             List<Product> products = productBLL.GetAll();
             gvProduct.DataSource = products;
-           
-
 
         }
 
         private void LoadSupplier()
         {
+            Supplier supplier = new Supplier();
+            supplier.Id = -1;
+            supplier.Name = "Please Select-";
+
             SupplierBLL supplierBLL = new SupplierBLL();
             List<Supplier> suppliers = supplierBLL.GetAll();
+            suppliers.Insert(0, supplier);
             cboSupplier.DataSource = suppliers;
             cboSupplier.ValueMember = "Id";
             cboSupplier.DisplayMember = "Name";
-            comboSupplier.DataSource = suppliers;
+
+            List<Supplier> suppliersSearch = supplierBLL.GetAll();
+            suppliersSearch.Insert(0, supplier);
+            comboSupplier.DataSource = suppliersSearch;
             comboSupplier.ValueMember = "Id";
             comboSupplier.DisplayMember = "Name";
             
@@ -103,12 +117,20 @@ namespace MyApp
 
         private void LoadCategory()
         {
+            Categories categories1 = new Categories();
+            categories1.Id = -1;
+            categories1.Name = "Please Select-";
+
             CategoriesBLL categoryBLL = new CategoriesBLL();
             List<Categories> categories = categoryBLL.GetAll();
+            categories.Insert(0, categories1);
             cboCategory.DataSource = categories;
             cboCategory.ValueMember = "Id";
             cboCategory.DisplayMember = "Name";
-            comboCategory.DataSource = categories;
+
+            List<Categories> categoriesSearch = categoryBLL.GetAll();
+            categoriesSearch.Insert(0, categories1);
+            comboCategory.DataSource = categoriesSearch;
             comboCategory.ValueMember = "Id";
             comboCategory.DisplayMember= "Name";
         }
@@ -152,13 +174,16 @@ namespace MyApp
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string sn = "";
-            if (comboSupplier.SelectedIndex != -1)
+            //if (comboSupplier.SelectedIndex != -1)
+            if (Convert.ToInt32(comboSupplier.SelectedValue) > -1)
+
             {
                 sn += "SupplierId =" + comboSupplier.SelectedValue;
 
             }
 
-            if (comboCategory.SelectedValue != "")
+            //if (comboCategory.SelectedValue != "")
+            if (Convert.ToInt32(comboCategory.SelectedValue) > -1)
             {
                 if (sn != string.Empty)
                     sn = sn + " AND ";

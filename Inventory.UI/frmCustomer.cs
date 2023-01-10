@@ -1,6 +1,7 @@
 ﻿using Inventory.BLL.BusinessLogic;
 using Inventory.DLL.Entities;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Inventory.UI
@@ -112,5 +113,19 @@ namespace Inventory.UI
     {
       this.Close();
     }
-  }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string cn = "";
+            if (txtNameSearch.Text != "")
+            {
+                cn += "Name LIKE '%" + txtNameSearch.Text + "%'";
+
+            }
+
+            CustomerBLL css = new CustomerBLL();
+            List<Customer> customers = css.GetAll(cn);
+            gvCustomer.DataSource = customers;
+        }
+    }
 }

@@ -68,21 +68,21 @@ namespace MyApp
             this.comboSupplier = new System.Windows.Forms.ComboBox();
             this.comboCategory = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpDownUnitinStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpDownUOD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpDownReorder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpUnitPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -129,12 +129,12 @@ namespace MyApp
             this.Edit,
             this.Delete});
             this.gvProduct.DataSource = this.productBindingSource1;
-            this.gvProduct.Location = new System.Drawing.Point(29, 300);
+            this.gvProduct.Location = new System.Drawing.Point(29, 338);
             this.gvProduct.Margin = new System.Windows.Forms.Padding(1);
             this.gvProduct.Name = "gvProduct";
             this.gvProduct.RowHeadersWidth = 102;
             this.gvProduct.RowTemplate.Height = 49;
-            this.gvProduct.Size = new System.Drawing.Size(1113, 212);
+            this.gvProduct.Size = new System.Drawing.Size(1113, 174);
             this.gvProduct.TabIndex = 2;
             this.gvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvProduct_CellClick);
             // 
@@ -431,29 +431,61 @@ namespace MyApp
             // 
             this.comboSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSupplier.FormattingEnabled = true;
-            this.comboSupplier.Location = new System.Drawing.Point(134, 31);
+            this.comboSupplier.Location = new System.Drawing.Point(88, 27);
             this.comboSupplier.Name = "comboSupplier";
-            this.comboSupplier.Size = new System.Drawing.Size(99, 24);
+            this.comboSupplier.Size = new System.Drawing.Size(192, 24);
             this.comboSupplier.TabIndex = 23;
             // 
             // comboCategory
             // 
             this.comboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCategory.FormattingEnabled = true;
-            this.comboCategory.Location = new System.Drawing.Point(332, 31);
+            this.comboCategory.Location = new System.Drawing.Point(458, 27);
             this.comboCategory.Name = "comboCategory";
-            this.comboCategory.Size = new System.Drawing.Size(88, 24);
+            this.comboCategory.Size = new System.Drawing.Size(164, 24);
             this.comboCategory.TabIndex = 24;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(444, 32);
+            this.btnSearch.Location = new System.Drawing.Point(88, 79);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 25;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.comboSupplier);
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.comboCategory);
+            this.groupBox1.Location = new System.Drawing.Point(470, 207);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(641, 127);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "SearchBy";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 16);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Supplier";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(381, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 16);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Category";
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -496,38 +528,6 @@ namespace MyApp
             // 
             this.productBindingSource1.DataSource = typeof(Inventory.DLL.Entities.Product);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.comboSupplier);
-            this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.comboCategory);
-            this.groupBox1.Location = new System.Drawing.Point(470, 207);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(641, 77);
-            this.groupBox1.TabIndex = 26;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "SearchBy";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(71, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 16);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "Supplier";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(255, 35);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 16);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "Category";
-            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -567,9 +567,9 @@ namespace MyApp
             ((System.ComponentModel.ISupportInitialize)(this.nUpDownUOD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpDownReorder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpUnitPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
