@@ -82,6 +82,7 @@ namespace MyApp
             ProductBLL productBLL = new ProductBLL();
             List<Product> products = productBLL.GetAll();
             gvProduct.DataSource = products;
+           
 
 
         }
@@ -93,6 +94,10 @@ namespace MyApp
             cboSupplier.DataSource = suppliers;
             cboSupplier.ValueMember = "Id";
             cboSupplier.DisplayMember = "Name";
+            comboSupplier.DataSource = suppliers;
+            comboSupplier.ValueMember = "Id";
+            comboSupplier.DisplayMember = "Name";
+            
         }
 
 
@@ -103,6 +108,9 @@ namespace MyApp
             cboCategory.DataSource = categories;
             cboCategory.ValueMember = "Id";
             cboCategory.DisplayMember = "Name";
+            comboCategory.DataSource = categories;
+            comboCategory.ValueMember = "Id";
+            comboCategory.DisplayMember= "Name";
         }
         private void ClearField()
         {
@@ -139,6 +147,29 @@ namespace MyApp
         private void btnReset_Click(object sender, EventArgs e)
         {
             ClearField();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string sn = "";
+            if (comboSupplier.SelectedIndex != -1)
+            {
+                sn += "SupplierId =" + comboSupplier.SelectedValue;
+
+            }
+
+            if (comboCategory.SelectedValue != "")
+            {
+                if (sn != string.Empty)
+                    sn = sn + " AND ";
+                sn +=  "CategoryId =" + comboCategory.SelectedValue;
+
+            }
+
+            ProductBLL pro = new ProductBLL();
+            List<Product> products = pro.GetAll(sn);
+            gvProduct.DataSource = products;
+
         }
     }
 }

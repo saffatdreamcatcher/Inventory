@@ -105,6 +105,7 @@ namespace Inventory.DLL.Repositories
                 comm.CommandText = "SELECT P.*, S.Name AS SupplierName, C.Name AS CategoryName from Product P " +
                            "left join Supplier S ON P.SupplierId = S.Id " +
                            "left join Categories C ON P.CategoryId = C.Id Where P.Id = " + id;
+
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
