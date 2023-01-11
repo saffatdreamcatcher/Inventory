@@ -64,8 +64,24 @@ namespace Inventory.DLL.Repositories
             DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
             var product = new Product(id, createTime);
             product.Name = reader["Name"] is DBNull ? null : reader["Name"].ToString();
-            product.SupplierId = reader["SupplierId"] is DBNull ? 0 : Convert.ToInt32(reader["SupplierId"]);
-            product.CategoryId = reader["CategoryId"] is DBNull ? 0 : Convert.ToInt32(reader["CategoryId"]);
+
+            if (reader["SupplierId"] is DBNull)
+            {
+                product.SupplierId = null;
+            }
+            else 
+            {
+                product.SupplierId = Convert.ToInt32(reader["SupplierId"]);
+            }
+
+            if (reader["CategoryId"] is DBNull)
+            {
+                product.CategoryId = null;
+            }
+            else
+            {
+                product.CategoryId = Convert.ToInt32(reader["CategoryId"]);
+            }
             product.Quantity = reader["Quantity"] is DBNull ? null : reader["Quantity"].ToString();
             product.UnitPrice = reader["UnitPrice"] is DBNull ? 0 :Convert.ToDouble(reader["UnitPrice"]);
             product.UnitInStock = reader["UnitInStock"] is DBNull ? 0 : Convert.ToInt32 (reader["UnitInStock"]);
@@ -199,8 +215,24 @@ namespace Inventory.DLL.Repositories
           comm.Parameters.Add("@Id", SqlDbType.Int).Value = product.Id;
         }
         comm.Parameters.Add("@Name", SqlDbType.VarChar).Value = product.Name;
-        comm.Parameters.Add("@SupplierId", SqlDbType.Int).Value = product.SupplierId;
-        comm.Parameters.Add("@CategoryId", SqlDbType.Int).Value = product.CategoryId;
+        if (product.SupplierId.HasValue)
+        {
+            comm.Parameters.Add("@SupplierId", SqlDbType.Int).Value = product.SupplierId.Value;
+        }
+        else
+        {
+            comm.Parameters.Add("@SupplierId", SqlDbType.Int).Value = DBNull.Value;
+        }
+
+        if (product.CategoryId.HasValue)
+        {
+            comm.Parameters.Add("@CategoryId", SqlDbType.Int).Value = product.CategoryId.Value;
+        }
+        else
+        {
+            comm.Parameters.Add("@CategoryId", SqlDbType.Int).Value = DBNull.Value;
+        }
+                
         comm.Parameters.Add("@Quantity", SqlDbType.VarChar).Value = product.Quantity;
         comm.Parameters.Add("@UnitPrice", SqlDbType.Money).Value = product.UnitPrice;
         comm.Parameters.Add("@UnitInStock", SqlDbType.Int).Value = product.UnitInStock;

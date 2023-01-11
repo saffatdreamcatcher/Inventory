@@ -87,7 +87,7 @@ namespace Inventory.UI
             if (IsFormValid())
             {
                 Shipper shipper = new Shipper();
-                //shipper.Id = shipperId;
+                shipper.Id = id;
                 shipper.CompanyName = txtCompanyName.Text;
                 shipper.Phone = txtPhone.Text;
                 var shipperBLL = new ShipperBLL();

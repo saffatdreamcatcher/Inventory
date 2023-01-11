@@ -38,8 +38,8 @@ namespace MyApp
             {
                 id = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[0].Value);
                 txtName.Text = Convert.ToString(gvProduct.Rows[e.RowIndex].Cells[1].Value);
-                cboSupplier.SelectedValue = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[4].Value);
-                cboCategory.SelectedValue = Convert.ToInt32(gvProduct.Rows[e.RowIndex].Cells[5].Value);
+                cboSupplier.SelectedValue = gvProduct.Rows[e.RowIndex].Cells[4].Value ?? -1;
+                cboCategory.SelectedValue = gvProduct.Rows[e.RowIndex].Cells[5].Value ?? -1;
                 txtQuantity.Text = Convert.ToString(gvProduct.Rows[e.RowIndex].Cells[6].Value);
                 nUpUnitPrice.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[7].Value);
                 nUpDownUnitinStock.Value = Convert.ToDecimal(gvProduct.Rows[e.RowIndex].Cells[8].Value);
@@ -61,16 +61,22 @@ namespace MyApp
             Product product = new Product();
             product.Id = id;
             product.Name = txtName.Text;
-            //if (Convert.ToInt32(cboSupplier.SelectedValue) > -1)
-            //{
+            if (Convert.ToInt32(cboSupplier.SelectedValue) > -1)
+            {
                 product.SupplierId = Convert.ToInt32(cboSupplier.SelectedValue);
-            //}
-            //else
-            //{
-            //    product.SupplierId = null;
-            //}
-
-            product.CategoryId = Convert.ToInt32(cboCategory.SelectedValue);
+            }
+            else
+            {
+                product.SupplierId = null;
+            }
+            if (Convert.ToInt32(cboCategory.SelectedValue) > -1)
+            {
+                product.CategoryId = Convert.ToInt32(cboCategory.SelectedValue);
+            }
+            else
+            {
+                product.CategoryId = null;
+            }
             product.Quantity = txtQuantity.Text;
             product.UnitPrice = Convert.ToDouble(nUpUnitPrice.Value);
             product.UnitInStock = Convert.ToInt32(nUpDownUnitinStock.Value);
