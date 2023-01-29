@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessManager.cs" />
     <Compile Include="Entities\Categories.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Entity.cs" />
