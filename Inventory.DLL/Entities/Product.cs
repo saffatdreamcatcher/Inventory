@@ -33,7 +33,7 @@ namespace Inventory.DLL.Entities
     public int? UnitInStock { get => unitinstock; set => unitinstock = value; }
 
     private int? unitsonorder;
-    public int? UnitsOnOrder { get => unitsonorder; set => unitsonorder = value; }
+    public int? UnitsOnOrder { get => unitsonorder; set => unitsonorder = value; }  // here ? mark is for nullable
 
     private int? reorderlevel;
     public int? ReorderLevel { get => reorderlevel; set => reorderlevel = value; }

@@ -51,6 +51,9 @@ namespace Inventory.DLL.Entities
 
         private string homepage;
         public string HomePage { get => homepage; set => homepage = value; }
+
+       
+
     }
 }
 

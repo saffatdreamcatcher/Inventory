@@ -14,7 +14,7 @@ namespace Inventory.BLL.BusinessLogic
         {
             try
             {
-                var categoriesDLL = new CategoriesDLL();
+                CategoriesDLL categoriesDLL = new CategoriesDLL();
                 return categoriesDLL.Save(categories);
             }
             catch (Exception ex)
@@ -27,7 +27,7 @@ namespace Inventory.BLL.BusinessLogic
         {
             try
             {
-                var categoriesDLL = new CategoriesDLL();
+                CategoriesDLL categoriesDLL = new CategoriesDLL();
                 return categoriesDLL.GetAll();
             }
             catch (Exception ex)
@@ -40,7 +40,7 @@ namespace Inventory.BLL.BusinessLogic
         {
             try
             {
-                var categoriesDLL = new CategoriesDLL();
+                CategoriesDLL categoriesDLL = new CategoriesDLL();
                 return categoriesDLL.GetById(0);
             }
             catch (Exception ex)

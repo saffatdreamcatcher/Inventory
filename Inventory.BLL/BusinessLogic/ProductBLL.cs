@@ -11,7 +11,7 @@ namespace Inventory.BLL.BusinessLogic
     {
       try
       {
-        var productDLL = new ProductDLL();
+        ProductDLL productDLL = new ProductDLL();
         return productDLL.Save(product);
       }
       catch (Exception ex)
@@ -23,7 +23,7 @@ namespace Inventory.BLL.BusinessLogic
     {
       try
       {
-        var productDLL = new ProductDLL();
+        ProductDLL productDLL = new ProductDLL();
         return productDLL.GetAll(whereclause);
       }
       catch (Exception ex)
@@ -36,7 +36,7 @@ namespace Inventory.BLL.BusinessLogic
         { 
         try
             {
-                var productDLL = new ProductDLL();    
+                ProductDLL productDLL = new ProductDLL();    
                 return productDLL.GetById(id);
             }
             catch (Exception ex)
@@ -49,7 +49,7 @@ namespace Inventory.BLL.BusinessLogic
         {
             try
             {
-                var productDLL = new ProductDLL();
+                ProductDLL productDLL = new ProductDLL();
                 return productDLL.GetCount (whereclause);
             }
             catch (Exception ex)
